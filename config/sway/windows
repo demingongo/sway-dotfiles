@@ -4,7 +4,7 @@ default_border pixel 2
 
 gaps inner 4
 
-client.focused "#ffcce1" "#ffcce1" "#ffffff" "#ffcce1" "#ff9999"
+client.focused "#ff9999" "#ff9999" "#ffffff" "#ffcce1" "#ff9999"
 # client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
 # client.focused_tab_title #333333 #5f676a #ffffff
 client.unfocused "#ff9999" "#222222" "#888888" "#292d2e" "#222222"
