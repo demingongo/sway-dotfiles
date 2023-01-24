@@ -1,0 +1,17 @@
+configuration{
+    modi: "run,drun,filebrowser";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-filebrowser: " 﩯  Window";
+    sidebar-mode: false;
+}
+
+@theme "catppuccin-latte-custom"
+
