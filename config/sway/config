@@ -24,7 +24,7 @@ set $term2 wezterm
 #set $menu wofi --show=drun --allow-images --lines=8 --prompt="" | xargs swaymsg exec --
 set $menu rofi -show drun -sidebar-mode | xargs swaymsg exec --
 # powermenu
-set $powermenu rofi -show p -theme "$HOME/.local/share/rofi/themes/catppuccin-latte-powermenu.rasi" -modi "p:$HOME/.local/share/rofi/scripts/rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout"
+set $powermenu rofi -show p -theme "$HOME/.local/share/rofi/themes/catppuccin-latte-powermenu.rasi" -modi "p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=logout"
 # Swaynagmode: helper for sway prompt to enable interaction via keyboard shortcuts
 set $nag exec swaynagmode
 mode "nag" {

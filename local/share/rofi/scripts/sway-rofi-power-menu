@@ -38,13 +38,13 @@ icons[shutdown]="\uf011"
 icons[cancel]="\u00d7"
 
 declare -A actions
-actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+actions[lockscreen]="swaymsg exit"
 #actions[switchuser]="???"
-actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
-actions[suspend]="systemctl suspend"
-actions[hibernate]="systemctl hibernate"
-actions[reboot]="systemctl reboot"
-actions[shutdown]="systemctl poweroff"
+actions[logout]="swaymsg exit"
+actions[suspend]="swaymsg exit"
+actions[hibernate]="swaymsg exit"
+actions[reboot]="swaymsg exit"
+actions[shutdown]="swaymsg exit"
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=(reboot shutdown logout)
