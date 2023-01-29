@@ -89,10 +89,15 @@ output * bg $HOME/.local/shar/sharee/wallpapers/wp6037549-pink-anime-clouds-wall
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-exec swayidl -w \
-        timeout 1800 'swaylock -f' \
-        timeout 1805 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-        before-sleep 'swaylock -f -c 000000'
+#
+# Lock screen after 10 min idle
+# Turn screen off after 10 min 30 seconds idle
+# 
+exec swayidle -w \
+        timeout 600 'swaylock -f -c e0d7ff' \
+        timeout 630 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 957dad'
 
 ### Input configuration
 #
