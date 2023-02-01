@@ -1,5 +1,7 @@
 # Handle window style/behaviour
 
+for_window [app_id="pavucontrol"] floating enable
+
 default_border pixel 2
 
 gaps inner 4
