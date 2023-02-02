@@ -303,6 +303,11 @@ bar {
 #
 exec wl-paste -t text --watch clipman store --no-persist
 
+#
+# Notification daemon for Wayland
+#
+exec mako
+
 ### Applets
 #
 # Network Manager:
