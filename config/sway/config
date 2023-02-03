@@ -236,7 +236,11 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
 
     # Screenshot
     bindsym Print exec $screenshot
-
+#
+# Clipboard
+#
+    # Search in clipboard
+    bindsym $mod+m exec clipman pick --tool wofi -T'--prompt=search -i'
 #
 # Resizing containers:
 #
