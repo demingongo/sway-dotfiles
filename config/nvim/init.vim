@@ -10,6 +10,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-tree/nvim-web-devicons' " icons
 Plug 'nvim-tree/nvim-tree.lua'
 
+" https://github.com/romgrk/barbar.nvim
+Plug 'romgrk/barbar.nvim'
+
 " https://github.com/feline-nvim/feline.nvim
 Plug 'feline-nvim/feline.nvim'
 
