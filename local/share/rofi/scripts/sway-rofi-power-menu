@@ -7,7 +7,7 @@
 #
 #   rofi -show powermenu -modi powermenu:./rofi-power-menu
 #
-# See README.md for more information.
+# Updating it for usage with sway wm
 
 set -e
 set -u
@@ -38,7 +38,7 @@ icons[shutdown]="\uf011"
 icons[cancel]="\u00d7"
 
 declare -A actions
-actions[lockscreen]="swaymsg exit"
+actions[lockscreen]="swaylock -f -c e0d7ff"
 #actions[switchuser]="???"
 actions[logout]="swaymsg exit"
 actions[suspend]="swaymsg exit"
