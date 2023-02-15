@@ -1,6 +1,7 @@
 # Handle window style/behaviour
 
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman-manager"] floating enable
 
 default_border pixel 2
 
