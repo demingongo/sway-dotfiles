@@ -20,7 +20,7 @@ function list_geometry () {
 WINDOWS=`list_geometry visible with_description`
 FOCUSED=`list_geometry focused`
 
-CHOICE=`fuzzel -dmenu -p '📷> ' << EOF
+CHOICE=`fuzzel --dmenu -p '📷> ' << EOF
 fullscreen
 region
 focused
