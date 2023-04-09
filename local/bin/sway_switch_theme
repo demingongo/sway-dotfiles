@@ -52,6 +52,7 @@ if [[ -n "$theme" ]]; then
 
 	# load theme
 	content="""set \$theme $theme
+set \$theme_dir \$HOME/.config/sway/themes/\$theme
 include ./themes/\$theme/init
 """
 	echo "$content" > "$SWAY_DIR/theme"
