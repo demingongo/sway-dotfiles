@@ -18,9 +18,9 @@ set $term2 wezterm
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun -sidebar-mode | xargs swaymsg exec --
+set $menu rofi -show drun $rofimenutheme -sidebar-mode | xargs swaymsg exec --
 # powermenu
-set $powermenu rofi -show p -theme "$HOME/.local/share/rofi/themes/catppuccin-latte-powermenu.rasi" -modi "p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout" | xargs swaymsg exec --
+set $powermenu rofi -show p $rofipowermenutheme -modi "p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout" | xargs swaymsg exec --
 # Swaynagmode: helper for sway prompt to enable interaction via keyboard shortcuts
 set $nag exec swaynagmode
 # wob (level display for: sound, light, ...)
@@ -45,7 +45,7 @@ include ./themes/$theme/vars
 ### Output configuration
 #
 # Wallpaper
-output * bg $HOME/.local/share/wallpapers/wp6037549-pink-anime-clouds-wallpapers.jpg fill
+#output * bg $HOME/.local/share/wallpapers/wp6037549-pink-anime-clouds-wallpapers.jpg fill
 
 #
 # Example configuration:

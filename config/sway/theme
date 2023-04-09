@@ -1,1 +1,3 @@
 set $theme basic
+include ./themes/$theme/init
+

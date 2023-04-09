@@ -1,1 +1,3 @@
+# Override variables
+
 set $term2 konsole

@@ -1,2 +1,24 @@
-include ./bar
-include ./windows
+### Output configuration
+#
+# Wallpaper
+output * bg ./wallpapers/wp6037549-pink-anime-clouds-wallpapers.jpg fill
+
+# Read `man 5 sway` for a complete reference.
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+}
+
+# Handle window style/behaviour
+default_border pixel 2
+
+gaps inner 4
+
+client.focused "#ff9999" "#ff9999" "#ffffff" "#ffcce1" "#ff9999"
+# client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+# client.focused_tab_title #333333 #5f676a #ffffff
+client.unfocused "#ff9999" "#222222" "#888888" "#292d2e" "#222222"
+# client.urgent #2f343a #900000 #ffffff #900000 #900000
