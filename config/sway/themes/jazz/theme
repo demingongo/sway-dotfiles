@@ -1,8 +1,8 @@
 ### Output configuration
 #
 # Wallpaper
-#output * bg ./wallpapers/trumpet.png fill
-output * bg ./wallpapers/sax.jpg fill
+output * bg ./wallpapers/trumpet.png fill
+#output * bg ./wallpapers/sax.jpg fill
 
 # Read `man 5 sway` for a complete reference.
 #

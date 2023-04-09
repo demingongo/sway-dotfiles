@@ -1,3 +1,3 @@
 # Override variables
 
-set $term2 konsole
+set $term kitty --config $theme_dir/config/kitty.conf
