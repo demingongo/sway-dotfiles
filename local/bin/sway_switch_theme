@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+# sway_switch_theme
+#
+# Description: change theme of SwayWM
+# Author: demingongo
+# Link: https://github.com/demingongo
+# Availability: https://github.com/demingongo/sway-dotfiles
+
+SWAY_DIR="$HOME/.config/sway"
+
+SWAY_THEMES_DIR="$SWAY_DIR/themes"
+
+THEMES_FILE="$SWAY_THEMES_DIR/themes.txt" 
+
+ALL_THEMES=()
+
+while read -r line
+do
+	[[ -z "$line" ]] && break || ALL_THEMES=(${ALL_THEMES[@]} "$line")
+done < "$THEMES_FILE"
+
+is_interactive=false
+
+if [ $# -eq 0 ]; then
+	is_interactive=true
+	gum style \
+		--foreground 212 --border-foreground 212 --border double \
+		--align center --width 50 --margin "1 2" --padding "2 4" \
+		'SWAY DOTFILES' 'by demingongo'
+
+	echo "Select a theme:"
+	
+	choices=""
+	for i in ${!ALL_THEMES[@]}; do
+  		if [ $i -eq 0 ]; then
+			choices="${ALL_THEMES[$i]}"
+		else
+			choices="""$choices
+${ALL_THEMES[$i]}"""
+  		fi
+	done
+
+	theme=$(echo "$choices" | gum choose --item.faint)
+	[[ " ${ALL_THEMES[*]} " =~ " $theme " ]] && theme="$theme" || exit 1
+else
+	[[ " ${ALL_THEMES[*]} " =~ " $1 " ]] && theme=$1 || exit 1	
+fi
+
+if [[ -n "$theme" ]]; then
+	[ "$is_interactive" = true ] && gum spin --spinner line --title "$theme" -- sleep 1
+
+	# load theme
+	content="""set \$theme $theme
+include ./themes/\$theme/init
+"""
+	echo "$content" > "$SWAY_DIR/theme"
+	
+	# load config
+	WAYBAR_DIR="$HOME/.config/waybar"
+	
+	WAYBAR_CONFIG="$WAYBAR_DIR/config"
+	WAYBAR_STYLE="$WAYBAR_DIR/style.css"
+	
+	WAYBAR_THEME_CONFIG="$WAYBAR_DIR/themes/$theme/config"
+	WAYBAR_THEME_STYLE="$WAYBAR_DIR/themes/$theme/style.css"
+
+	rm -f "$WAYBAR_CONFIG"
+	rm -f "$WAYBAR_STYLE"
+	
+	if [ -f "$WAYBAR_THEME_CONFIG" ]; then
+		ln -s -b "$WAYBAR_THEME_CONFIG" "$WAYBAR_CONFIG"
+	fi
+	if [ -f "$WAYBAR_THEME_STYLE" ]; then
+		ln -s -b "$WAYBAR_THEME_STYLE" "$WAYBAR_STYLE"
+	fi
+
+	# load zsh config
+
+	# restart wm
+	sway reload > /dev/null 2>&1 &
+	[ "$is_interactive" = true ] && echo "  $theme"
+fi
