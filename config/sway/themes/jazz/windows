@@ -1,0 +1,20 @@
+# Handle window style/behaviour
+default_border pixel 4
+
+gaps inner 4
+
+# Set colors
+set $bg #181712
+set $fg #faf6f3
+set $br #4e267f
+set $ia #362b87
+set $ur #a11021
+
+# class                 border  backgr. text    indicator child_border
+client.focused          $br     $br     $fg     $ia       $br
+client.focused_inactive $bg     $bg     $fg     $ia       $bg
+client.unfocused        $bg     $bg     $fg     $ia       $bg
+# Urgency only works for Xwayland windows
+client.urgent           $ur     $ur     $fg     $ia       $ur 
+client.background $bg
+

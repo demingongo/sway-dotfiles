@@ -1,0 +1,8 @@
+### Output configuration
+#
+# Wallpaper
+#output * bg ./wallpapers/trumpet.png fill
+output * bg ./wallpapers/sax.jpg fill
+
+include ./bar
+include ./windows
