@@ -320,6 +320,11 @@ exec wl-paste -t text --watch clipman store --no-persist
 #
 exec mako
 
+#
+# Transparent inactive windows
+#
+exec $HOME/.local/bin/inactive-windows-transparency.py -o 0.85
+
 ### Applets
 #
 # Network Manager:

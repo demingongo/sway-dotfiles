@@ -1,0 +1,3 @@
+# Override variables
+
+set $term kitty --config $theme_dir/config/kitty.conf
