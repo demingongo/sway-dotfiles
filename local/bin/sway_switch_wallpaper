@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+	echo "Missing 1 argument: path to wallpaper"
+	exit 1
+else
+	wallpaper_path=$1
+fi
+
+# kill swaybg process
+pkill swaybg
+
+# kill mpvpaper (video wallpaper)
+pkill mpvpaper
+
+# launch new swaybg process
+swaybg --image=$wallpaper_path --mode fill > /dev/null 2>&1 &

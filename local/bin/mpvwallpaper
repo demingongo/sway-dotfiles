@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# kill swaybg command
+pkill swaybg
+
+# run mpvpaper process
+mpvpaper -o "no-audio --loop" '*' "$HOME/Videos/redditsave.com_just_made_a_trailer-lvw9dhojipca1.mp4" > /dev/null 2>&1 &
+
+# "pkill mpvpaper" to kill process
+
