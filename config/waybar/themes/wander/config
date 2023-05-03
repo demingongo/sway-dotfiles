@@ -6,7 +6,7 @@
       "width": 1580,
       "spacing": 5, // Gaps between modules (0px)
       "margin-top": 10,
-      "modules-left": ["sway/workspaces", "sway/scratchpad", "idle_inhibitor", "sway/mode", "sway/window"],
+      "modules-left": ["custom/themes", "sway/workspaces", "sway/scratchpad", "idle_inhibitor", "sway/mode", "sway/window"],
       "modules-center": ["custom/media"],
       "modules-right": ["cpu", "pulseaudio", "battery", "network", "tray", "clock"],
   
@@ -32,7 +32,7 @@
       "sway/scratchpad": {
         "format": "{icon}   {count}",
         "show-empty": false,
-        "format-icons": ["", ""],
+        "format-icons": ["", " "],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
       },
@@ -65,8 +65,8 @@
       "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-          "activated": "",
-          "deactivated": ""
+          "activated": " ",
+          "deactivated": " "
         }
       },
       "tray": {
@@ -105,10 +105,10 @@
       },
       "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr}  ",
+        "tooltip-format": "{ifname} via {gwaddr}  ",
+        "format-linked": "{ifname} (No IP)  ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
       },
@@ -142,6 +142,10 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+      },
+      "custom/themes": {
+        "format": " ",
+	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
       },
       // for swaymsg use
       "ipc": true,
