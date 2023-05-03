@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# rofi-sway-switch-theme
+#
+# Description: change theme of SwayWM
+# Author: demingongo
+# Link: https://github.com/demingongo
+# Availability: https://github.com/demingongo/sway-dotfiles
+
+set -e
+set -u
+
+SWAY_DIR="$HOME/.config/sway"
+
+SWAY_THEMES_DIR="$SWAY_DIR/themes"
+
+THEMES_FILE="$SWAY_THEMES_DIR/themes.txt" 
+
+ALL_THEMES=()
+
+while read -r line
+do
+	[[ -z "$line" ]] && break || ALL_THEMES=(${ALL_THEMES[@]} "$line")
+done < "$THEMES_FILE"
+
+# Show all themes
+show=("${ALL_THEMES[@]}")
+
+if [ $# -gt 0 ]
+then
+    # If arguments given, use those as the selection
+    selection="${@}"
+else
+    # Otherwise, use the CLI passed choice if given
+    if [ -n "${selectionID+x}" ]
+    then
+        selection="${messages[$selectionID]}"
+    fi
+fi
+
+# Don't allow custom entries
+echo -e "\0no-custom\x1ftrue"
+# Use markup
+echo -e "\0markup-rows\x1ftrue"
+
+if [ -z "${selection+x}" ]
+then
+    echo -e "\0prompt\x1fChange theme"
+    for entry in "${show[@]}"
+    do
+        echo -e "${entry}"
+    done
+else
+    # Change theme
+    $HOME/.local/bin/sway_switch_theme "$selection"
+fi
