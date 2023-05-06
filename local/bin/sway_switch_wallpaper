@@ -1,7 +1,46 @@
 #!/usr/bin/env bash
 
+# sway_switch_wallpaper
+#
+# Description: change wallpaper on SwayWM
+# Author: demingongo
+# Link: https://github.com/demingongo
+# Availability: https://github.com/demingongo/sway-dotfiles
+
+MODE=fill
+
+# parse options
+opts=$(getopt --longoptions=mode:,video --name "$0" --options "" -- "$@")
+
+eval set -- $opts
+
+unset opts
+
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+		"--video")
+            		VIDEO=true
+            		shift 1
+            		;;
+	        "--mode")
+			echo "MODE $2"
+			MODE="$2"
+		        shift 2
+            		;;
+        	"--")
+	  	        shift
+	            	break
+        		;;
+        	*)
+			echo "Error $1" >&2
+			exit 1
+            		;;
+    esac
+done
+
+# arg 1 required: path to file
 if [ $# -eq 0 ]; then
-	echo "Missing 1 argument: path to wallpaper"
+	echo "Missing 1 argument: path to file" >&2
 	exit 1
 else
 	wallpaper_path=$1
@@ -13,5 +52,14 @@ pkill swaybg
 # kill mpvpaper (video wallpaper)
 pkill mpvpaper
 
-# launch new swaybg process
-swaybg --image=$wallpaper_path --mode fill > /dev/null 2>&1 &
+# set background
+if [ "$VIDEO" = true ]; then
+	echo "VIDEO $wallpaper_path"
+	# run mpvpaper process
+	mpvpaper -o "no-audio --loop" '*' "$wallpaper_path" > /dev/null 2>&1 &
+else
+	echo "IMAGE $MODE $wallpaper_path"
+	# launch new swaybg process
+	swaybg --image=$wallpaper_path --mode "$MODE" > /dev/null 2>&1 &
+fi
+

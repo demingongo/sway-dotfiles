@@ -2,7 +2,7 @@
 
 # sway_switch_theme
 #
-# Description: change theme of SwayWM
+# Description: change theme on SwayWM
 # Author: demingongo
 # Link: https://github.com/demingongo
 # Availability: https://github.com/demingongo/sway-dotfiles
@@ -77,6 +77,10 @@ include ./themes/\$theme/init
 	fi
 
 	# load zsh config
+
+	# kill wallpaper process'
+	pkill swaybg
+	pkill mpvpaper
 
 	# restart wm
 	sway reload > /dev/null 2>&1 &
