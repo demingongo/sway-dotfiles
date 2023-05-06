@@ -1,9 +1,7 @@
 ### Output configuration
 #
 # Wallpaper
-#output * bg ./wallpapers/vaporwoman.png fill
 output * bg ./wallpapers/okcat.jpg fill
-#output * bg ./wallpapers/bigcat.jpg fill
 
 # Read `man 5 sway` for a complete reference.
 #
@@ -35,9 +33,3 @@ client.unfocused        $bg     $bg     $fg     $ia       $bg
 client.urgent           $ur     $ur     $fg     $ia       $ur 
 client.background $bg
 
-## commands
-
-# set animated wallpaper (DOES NOT WORK)
-#swaybg_command -
-#set $dowallp "$HOME/.local/bin/mpvwallpaper" | xargs swaymsg exec --
-#exec $dowallp 

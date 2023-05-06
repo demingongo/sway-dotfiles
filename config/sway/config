@@ -21,6 +21,12 @@ set $term2 wezterm
 set $menu rofi -show drun $rofimenutheme -sidebar-mode | xargs swaymsg exec --
 # powermenu
 set $powermenu rofi -show p $rofipowermenutheme -modi "p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout" | xargs swaymsg exec --
+# wallpapermenu
+set $wallpapermenu rofi -show p $rofiwallpapermenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
+# themesmenu
+set $themesmenu rofi -show p $rofimenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme"  | xargs swaymsg exec --
+
+
 # Swaynagmode: helper for sway prompt to enable interaction via keyboard shortcuts
 set $nag exec swaynagmode
 # wob (level display for: sound, light, ...)
@@ -93,6 +99,9 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
 
     # Start your launcher
     bindsym $mod+p exec $menu
+
+    # Start themesmenu
+    bindsym $mod+o exec $themesmenu
 
     # Start powermenu
     bindsym $mod+Shift+t exec $powermenu
@@ -247,6 +256,9 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
 
     # Screenshot
     bindsym Print exec $screenshot
+
+    # Switch wallpaper
+    bindsym $mod+Shift+g exec $wallpapermenu
 #
 # Clipboard
 #
