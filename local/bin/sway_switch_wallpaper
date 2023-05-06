@@ -23,7 +23,7 @@ while [[ $# -gt 0 ]]; do
             		shift 1
             		;;
 	        "--mode")
-			echo "MODE $2"
+			#echo "MODE $2"
 			MODE="$2"
 		        shift 2
             		;;
@@ -54,11 +54,11 @@ pkill mpvpaper
 
 # set background
 if [ "$VIDEO" = true ]; then
-	echo "VIDEO $wallpaper_path"
+	#echo "VIDEO $wallpaper_path"
 	# run mpvpaper process
 	mpvpaper -o "no-audio --loop" '*' "$wallpaper_path" > /dev/null 2>&1 &
 else
-	echo "IMAGE $MODE $wallpaper_path"
+	#echo "IMAGE $MODE $wallpaper_path"
 	# launch new swaybg process
 	swaybg --image=$wallpaper_path --mode "$MODE" > /dev/null 2>&1 &
 fi
