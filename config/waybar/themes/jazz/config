@@ -150,7 +150,7 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 24,
     "spacing": 0, // Gaps between modules (0px)
-    "modules-left": ["custom/themes", "sway/scratchpad"],
+    "modules-left": ["custom/themes", "custom/wallpapers", "sway/scratchpad"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "backlight", "battery", "tray"],
 
@@ -290,6 +290,11 @@
     "custom/themes": {
         "format": " ",
 	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-mocha.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
+      },
+      "custom/wallpapers": {
+        "format": "󰉼",
+	"tooltip": false,
+	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/jazz/config/theme.conf\""
       },
     // for swaymsg use
     "ipc": true,
