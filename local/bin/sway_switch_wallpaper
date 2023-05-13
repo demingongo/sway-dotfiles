@@ -9,8 +9,10 @@
 
 MODE=fill
 
+COLOR=#404040
+
 # parse options
-opts=$(getopt --longoptions=mode:,video --name "$0" --options "" -- "$@")
+opts=$(getopt --longoptions=mode:,color:,video --name "$0" --options "" -- "$@")
 
 eval set -- $opts
 
@@ -25,6 +27,11 @@ while [[ $# -gt 0 ]]; do
 	        "--mode")
 			#echo "MODE $2"
 			MODE="$2"
+		        shift 2
+            		;;
+	        "--color")
+			#echo "MODE $2"
+			COLOR="$2"
 		        shift 2
             		;;
         	"--")
@@ -60,6 +67,6 @@ if [ "$VIDEO" = true ]; then
 else
 	#echo "IMAGE $MODE $wallpaper_path"
 	# launch new swaybg process
-	swaybg --image=$wallpaper_path --mode "$MODE" > /dev/null 2>&1 &
+	swaybg --image=$wallpaper_path --mode "$MODE" --color "$COLOR" > /dev/null 2>&1 &
 fi
 

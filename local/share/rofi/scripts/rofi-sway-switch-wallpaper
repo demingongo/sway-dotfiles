@@ -91,6 +91,7 @@ function load_wallpapers()
     local file_path=''
     local file_type=''
     local bg_mode=''
+    local bg_color=''
     local cmd=''
 
     section=$(process_section_name 'wallpapers')
@@ -118,6 +119,7 @@ function load_wallpapers()
 	
     	file_type="${TMP_VALUES[1]}"
 	bg_mode="${TMP_VALUES[2]}"
+	bg_color="${TMP_VALUES[3]}"
 
     	cmd="$SWITCHER_CMD ${file_path}"
 
@@ -126,6 +128,9 @@ function load_wallpapers()
     	fi
     	if [ -n "$bg_mode" ]; then
 		cmd="${cmd} --mode ${bg_mode}"
+    	fi
+    	if [ -n "$bg_color" ]; then
+		cmd="${cmd} --color '#${bg_color}'"
     	fi
 
 	cmds["${key}"]="${cmd}"
