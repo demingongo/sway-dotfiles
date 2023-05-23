@@ -5,7 +5,7 @@
 (defpoll mpris-list :interval "1s"
 	:initial "[{'text': 'waiting...', 'alt': 'loading'}]"	; optional, defaults to poll at startup
 	:run-while mpris-list-visible   			; optional, defaults to 'true'
-  `$HOME/Documents/devs/rust/mpris_widget/target/release/mpris_widget list`)
+  `mpris_widget list`)
 
 (defwidget mpris-list-widget [?window_name]
     (box :class "mpris-list-widget" 
@@ -16,7 +16,7 @@
 		)
     	(for entry in mpris-list
     	    (eventbox :class "li"
-			    :onclick "$HOME/Documents/devs/rust/mpris_widget/target/release/mpris_widget select '${entry.alt}'"
+			    :onclick "mpris_widget select '${entry.alt}'"
 				:onrightclick "playerctl play-pause --player '${entry.alt}'"
 				:halign "fill"
 				(mpris-list-line 
@@ -38,7 +38,7 @@
 		;	:path "${art_url}"
 		;	:image-width 60)
 		(mpris-list-line-details 
-			:title "${title}"
+			:title {title == "" ? player : title}
 			:artist "${artist}"
 			:album "${album}"
 			:state "${state}")
