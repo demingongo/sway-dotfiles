@@ -1,0 +1,27 @@
+/* widgets/mpris-list */
+
+.mpris-list-widget {
+    background-image: $mpris-list-bg-image;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .li-close {
+        background-color: rgba(0, 0, 0, .75);
+    }
+
+    .li {
+        background-color: rgba(0, 0, 0, .75); 
+        border-bottom: 1px solid black;
+    }
+}
+
+.mpris-list-line-details {
+    .title {
+        font-weight: bold;
+    }
+
+    .album {
+        font-style: italic;
+    }
+}

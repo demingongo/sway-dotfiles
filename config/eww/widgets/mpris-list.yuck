@@ -1,0 +1,71 @@
+; mpris-list-widget
+
+(defvar mpris-list-visible false)
+
+(defpoll mpris-list :interval "1s"
+	:initial "[{'text': 'waiting...', 'alt': 'loading'}]"	; optional, defaults to poll at startup
+	:run-while mpris-list-visible   			; optional, defaults to 'true'
+  `$HOME/Documents/devs/rust/mpris_widget/target/release/mpris_widget list`)
+
+(defwidget mpris-list-widget [?window_name]
+    (box :class "mpris-list-widget" 
+		:orientation "vertical"
+		(eventbox :class "li-close"
+			:height 80
+			:onclick "${EWW_CMD} close ${window_name}"
+		)
+    	(for entry in mpris-list
+    	    (eventbox :class "li"
+			    :onclick "$HOME/Documents/devs/rust/mpris_widget/target/release/mpris_widget select '${entry.alt}'"
+				:onrightclick "playerctl play-pause --player '${entry.alt}'"
+				:halign "fill"
+				(mpris-list-line 
+					:title "${entry.title}"
+					:artist "${entry.artist}"
+					:album "${entry.album}"
+					:art_url "${entry.art_url}"
+					:player "${entry.alt}"
+					:state "${entry.state}")
+			)
+		)
+	)
+)
+
+(defwidget mpris-list-line [?title artist album art_url player state]
+	(box :orientation "horizontal"
+    	 :halign "start"
+		;(image 
+		;	:path "${art_url}"
+		;	:image-width 60)
+		(mpris-list-line-details 
+			:title "${title}"
+			:artist "${artist}"
+			:album "${album}"
+			:state "${state}")
+	)
+)
+
+(defwidget mpris-list-line-details [?title artist album state]
+	(box :class "mpris-list-line-details" 
+		:orientation "vertical"
+    	:halign "start"
+		(box :class "mpris-list-line-details-text" 
+			:orientation "horizontal"
+    		:halign "start"
+			:space-evenly false
+			(label :class "state"
+				:text {state == "Playing" ? " " : state == "Paused" ? " " : state == "Stopped" ? " " : ""}
+				:xalign 0)
+			(label :class "title"
+				:text "${title}"
+				:limit-width 50
+				:xalign 0)
+		)
+		(label :class "artist"
+			:text "${artist}"
+			:xalign 0)
+		(label :class "album"
+			:text "${album}"
+			:xalign 0)
+	)
+)
