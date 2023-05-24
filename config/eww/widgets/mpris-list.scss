@@ -5,14 +5,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    border: 1px solid black;
 
     .li-close {
-        background-color: rgba(0, 0, 0, .75);
+        background-color: rgba(0, 0, 0, .6);
     }
 
     .li {
-        background-color: rgba(0, 0, 0, .75); 
-        border-bottom: 1px solid black;
+        background-color: rgba(0, 0, 0, .6); 
+        border-bottom: 1px dotted black;
     }
 }
 

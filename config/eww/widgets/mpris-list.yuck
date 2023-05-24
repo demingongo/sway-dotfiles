@@ -1,5 +1,7 @@
 ; mpris-list-widget
 
+(defvar mpris-list-icons '{"mpv": "mpv.svg", "spotify": "spotify.svg", "rhythmbox": "rhythmbox.svg", "firefox": "firefox.png", "musikcube": "musikcube.png", "elisa": "elisa.svg", "plasma-browser-integration": "plasma.svg"}')
+
 (defvar mpris-list-visible false)
 
 (defpoll mpris-list :interval "1s"
@@ -34,14 +36,25 @@
 (defwidget mpris-list-line [?title artist album art_url player state]
 	(box :orientation "horizontal"
     	 :halign "start"
-		;(image 
-		;	:path "${art_url}"
-		;	:image-width 60)
+		 :space-evenly false
+		(mpris-list-line-icon
+			:width 75
+			:player "${player}")
 		(mpris-list-line-details 
 			:title {title == "" ? player : title}
 			:artist "${artist}"
 			:album "${album}"
 			:state "${state}")
+	)
+)
+
+(defwidget mpris-list-line-icon [?player width]
+	(box :width width
+		(image 
+			:valign "start"
+			;:path "./assets/players/${mpris-list-icons[player]}"
+			:path {mpris-list-icons[player] == "null" ? "./assets/players/default.png" : "./assets/players/${mpris-list-icons[player]}"}
+			:image-width width)
 	)
 )
 
