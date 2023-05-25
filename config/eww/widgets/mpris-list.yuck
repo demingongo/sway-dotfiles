@@ -6,7 +6,7 @@
 
 (defpoll mpris-list :interval "1s"
 	:initial "[{'text': 'waiting...', 'alt': 'loading'}]"	; optional, defaults to poll at startup
-	:run-while mpris-list-visible   			; optional, defaults to 'true'
+	:run-while mpris-list-visible   						; optional, defaults to 'true'
   `mpris_widget list`)
 
 (defwidget mpris-list-widget [?window_name]
@@ -17,7 +17,7 @@
 			:onclick "${EWW_CMD} close ${window_name}"
 		)
     	(for entry in mpris-list
-    	    (eventbox :class "li"
+    	    (eventbox :class "li ${entry.alt}"
 			    :onclick "mpris_widget select '${entry.alt}'"
 				:onrightclick "playerctl play-pause --player '${entry.alt}'"
 				:halign "fill"
@@ -61,6 +61,7 @@
 (defwidget mpris-list-line-details [?title artist album state]
 	(box :class "mpris-list-line-details" 
 		:orientation "vertical"
+		:space-evenly false
     	:halign "start"
 		(box :class "mpris-list-line-details-text" 
 			:orientation "horizontal"
