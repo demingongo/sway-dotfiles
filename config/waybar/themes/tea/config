@@ -147,7 +147,7 @@
           "default": "🎜"
         },
         "escape": true,
-        "exec": "mpris_widget 2> /dev/null", // Script in resources folder
+        "exec": "mpris_widget --clean-start 2> /dev/null", // Script in resources folder
 	"exec-on-event": false,
 	"on-click": "mpris_widget play-pause", // Play/pause the player
 	
