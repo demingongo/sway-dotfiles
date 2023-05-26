@@ -163,12 +163,12 @@
       "custom/themes": {
         "format": " ",
 	"tooltip": false,
-	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
+	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/tea.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
       },
       "custom/wallpapers": {
         "format": "󰉼",
 	"tooltip": false,
-	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/tea/config/theme.conf\""
+	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/tea.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/tea/config/theme.conf\""
       },
       // for swaymsg use
       "ipc": true,
