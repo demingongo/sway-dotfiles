@@ -1,5 +1,5 @@
 # Theme's variables
 
-set $rofimenutheme -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi
+set $rofimenutheme -theme $HOME/.local/share/rofi/themes/tea.rasi
 set $rofipowermenutheme $rofimenutheme
 set $rofiwallpapermenutheme $rofimenutheme
