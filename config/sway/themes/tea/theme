@@ -19,17 +19,18 @@ gaps inner 4
 gaps outer 6
 
 # Set colors
-set $bg #03010c
-set $fg #faf6f3
-set $br #4e267f
-set $ia #362b87
-set $ur #a11021
+set $bg #E4C390
+set $fg #B39C8B
+set $fgs #E7DCD1
+set $br #CBA179
+set $ia #DD9D6E
+set $ur #E2AB97
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $br     $br     $fg     $ia       $br
+client.focused          $br     $br     $fgs    $ia       $br
 client.focused_inactive $bg     $bg     $fg     $ia       $bg
 client.unfocused        $bg     $bg     $fg     $ia       $bg
 # Urgency only works for Xwayland windows
-client.urgent           $ur     $ur     $fg     $ia       $ur 
+client.urgent           $ur     $ur     $fgs    $ia       $ur 
 client.background $bg
 

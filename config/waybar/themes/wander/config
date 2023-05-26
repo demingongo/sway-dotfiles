@@ -2,11 +2,12 @@
     {
       "layer": "top", // Waybar at top layer
       "position": "top", // Waybar position (top|bottom|left|right)
+      "output": ["eDP-1"],
       //"height": 32,
       "width": 1580,
       "spacing": 5, // Gaps between modules (0px)
       "margin-top": 10,
-      "modules-left": ["custom/themes", "custom/wallpapers", "sway/workspaces", "sway/scratchpad", "idle_inhibitor", "sway/mode", "sway/window"],
+      "modules-left": ["custom/powermenu", "custom/themes", "custom/wallpapers", "sway/workspaces", "sway/scratchpad", "idle_inhibitor", "sway/mode", "sway/window"],
       "modules-center": ["custom/media"],
       "modules-right": ["cpu", "pulseaudio", "battery", "network", "tray", "clock"],
   
@@ -152,6 +153,11 @@
         "format": "󰉼",
 	"tooltip": false,
 	"on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/wander/config/theme.conf\""
+      },
+      "custom/powermenu": {
+        "format": " ",
+	      "tooltip": false,
+	      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi -modi \"p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout\""
       },
       // for swaymsg use
       "ipc": true,
