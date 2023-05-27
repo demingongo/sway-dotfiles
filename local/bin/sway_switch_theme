@@ -86,7 +86,7 @@ include ./themes/\$theme/init
 """
 	echo "$content" > "$SWAY_DIR/theme"
 	
-	# load config
+	# load waybar
 	WAYBAR_DIR="$HOME/.config/waybar"
 	
 	WAYBAR_CONFIG="$WAYBAR_DIR/config"
@@ -103,6 +103,18 @@ include ./themes/\$theme/init
 	fi
 	if [ -f "$WAYBAR_THEME_STYLE" ]; then
 		ln -s -b "$WAYBAR_THEME_STYLE" "$WAYBAR_STYLE"
+	fi
+
+	# load eww
+	EWW_DIR="$HOME/.config/eww"
+	EWW_STYLE="$EWW_DIR/theme.scss"
+	EWW_THEME_STYLE="$EWW_DIR/themes/$theme/style.scss"
+	EWW_DEFAULT_STYLE="$EWW_DIR/themes/default/style.scss"
+	
+	if [ -f "$EWW_THEME_STYLE" ]; then
+		echo "@import './themes/$theme/style.scss'" > "$EWW_STYLE"
+	elif [ -f "$EWW_DEFAULT_STYLE" ]; then
+		echo "@import './themes/default/style.scss'" > "$EWW_STYLE"
 	fi
 
 	# load config
