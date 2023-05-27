@@ -156,7 +156,7 @@
       "format": "",
       "return-type": "json",
       "escape": true,
-      "exec": "killall -INT mpris_widget && echo '' > /tmp/mpris_widget_history.txt && echo '' > /tmp/mpris_widget_errors.txt && mpris_widget --clean-start > /tmp/mpris_widget_history.txt 2> /tmp/mpris_widget_errors.txt",
+      "exec": "killall -INT mpris_widget && sleep 1 && echo '' > /tmp/mpris_widget_history.txt && echo '' > /tmp/mpris_widget_errors.txt && mpris_widget --clean-start > /tmp/mpris_widget_history.txt 2> /tmp/mpris_widget_errors.txt",
       "exec-on-event": false
     },
     "custom/media": {
