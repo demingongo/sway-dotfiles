@@ -1,6 +1,6 @@
 (include "./widgets/mpris-list.yuck")
 
-(defwindow sample
+(defwindow mprispopup0
            :monitor 0
            :geometry (geometry :x "0%"
                                :y "20px"
@@ -11,5 +11,19 @@
            :reserve (struts :distance "40px" :side "top")
            :windowtype "dialog"
            :wm-ignore false
-  (mpris-list-widget :window_name "sample")
+  (mpris-list-widget :window_name "mprispopup0")
+)
+
+(defwindow mprispopup1
+           :monitor 1
+           :geometry (geometry :x "0%"
+                               :y "20px"
+                               :width "300px"
+                               :height "50px"
+                               :anchor "top center")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dialog"
+           :wm-ignore false
+  (mpris-list-widget :window_name "mprispopup1")
 )
