@@ -6,8 +6,6 @@
 
 window#waybar {
     background-color: transparent;
-    /*background-color: #cba179;*/
-    /*border-bottom: 5px solid #cba179;*/
     color: #FBFACD;
     transition-property: background-color;
     transition-duration: .5s;
@@ -16,15 +14,6 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -200,9 +189,6 @@ label:focus {
     color: #FBFACD;
 }
 
-#network {
-}
-
 #network.disconnected {
     background-color: #e9af9c;
 }
@@ -243,9 +229,6 @@ label:focus {
     background-color: #ffa000;
     background-image: none;
     color: #FBFACD;
-}
-
-#tray {
 }
 
 #tray>.passive {
