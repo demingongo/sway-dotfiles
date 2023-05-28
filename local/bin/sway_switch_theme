@@ -147,6 +147,19 @@ include ./themes/\$theme/init
 	)
 	Load_config "${NVIM_CONF[0]}" "${NVIM_CONF[1]}" "${NVIM_CONF[2]}" "${NVIM_CONF[3]}"
 
+        # load cava config
+	CAVA_CONF=(
+    		# source
+		"$SWAY_DIR/themes/$theme/config/cava.conf"
+		# destination
+		"$CONFIG_DIR/cava.conf"
+		# default content
+		"; cava.conf"
+		# default content file
+		"$CONFIG_DIR/cava.default.conf"
+	)
+	Load_config "${CAVA_CONF[0]}" "${CAVA_CONF[1]}" "${CAVA_CONF[2]}" "${CAVA_CONF[3]}"
+
 	# kill wallpaper process'
 	pkill swaybg
 	pkill mpvpaper
