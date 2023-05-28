@@ -6,9 +6,9 @@
       "eDP-1"
     ],
     "height": 35,
-    "width": 1580,
+    "width": 1590,
     "spacing": 5,
-    "margin-top": 10,
+    "margin-top": 5,
     "modules-left": [
       "custom/powermenu",
       "sway/workspaces",
@@ -199,13 +199,11 @@
       "HDMI-A-1"
     ],
     "height": 35,
-    "width": 1900,
+    "width": 1910,
     "spacing": 5,
-    "margin-top": 10,
+    "margin-top": 5,
     "modules-left": [
       "custom/powermenu",
-      "custom/themes",
-      "custom/wallpapers",
       "sway/workspaces",
       "sway/scratchpad",
       "idle_inhibitor",
@@ -221,7 +219,9 @@
       "pulseaudio",
       "battery",
       "tray",
-      "clock"
+      "clock",
+      "custom/themes",
+      "custom/wallpapers"
     ],
     "sway/workspaces": {
       "disable-scroll": true,
@@ -345,7 +345,7 @@
     "custom/media": {
       "format": "{icon} {}",
       "return-type": "json",
-      "max-length": 40,
+      "max-length": 70,
       "format-icons": {
         "spotify": "",
         "default": "🎜"

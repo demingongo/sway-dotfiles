@@ -93,6 +93,7 @@ button:hover {
 /* red gradient */
 #custom-powermenu, 
 #idle_inhibitor,
+#cpu,
 #pulseaudio.muted,
 #network.disconnected,
 #custom-media.paused, 
@@ -114,7 +115,6 @@ button:hover {
 }
 
 /* green gradient */
-#custom-wallpapers,
 #idle_inhibitor.activated,
 #custom-media,
 #battery.charging,
@@ -212,4 +212,8 @@ button:hover {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#custom-wallpapers {
+    background: transparent;
 }
