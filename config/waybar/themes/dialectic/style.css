@@ -1,0 +1,215 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #FBFACD;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #181712;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #FBFACD;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #FBFACD;
+    border-radius: 5px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    box-shadow: inset 0 -2px #FBFACD;
+    border-radius: 2px;
+}
+
+#workspaces button.urgent {
+    background: rgb(235,160,172);
+    background: linear-gradient(52deg, rgba(235,160,172,1) 0%, rgba(243,139,168,1) 30%, rgba(231,130,132,1) 48%, rgba(250,179,135,1) 77%, rgba(249,226,175,1) 100%); 
+    background-size: 100% 100%;
+    color: #FBFACD
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#custom-themes,
+#custom-wallpapers,
+#custom-powermenu,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd,
+#window,
+#workspaces {
+    background-color: #cba179;
+    padding: 5px 10px;
+    color: #FBFACD;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bolder;
+    border-radius: 5px;
+}
+
+/* red gradient */
+#custom-powermenu, 
+#idle_inhibitor,
+#pulseaudio.muted,
+#network.disconnected,
+#custom-media.paused, 
+#custom-media.stopped,
+#battery.critical:not(.charging),
+#temperature.critical {
+    background: rgb(235,160,172);
+    background: linear-gradient(52deg, rgba(235,160,172,1) 0%, rgba(243,139,168,1) 30%, rgba(231,130,132,1) 48%, rgba(250,179,135,1) 77%, rgba(249,226,175,1) 100%); 
+    background-size: 100% 100%;
+}
+
+/* blue gradient */
+#custom-themes, 
+#mode,
+#temperature {
+    background: rgb(137,180,250);
+    background: linear-gradient(52deg, rgba(137,180,250,1) 0%, rgba(142,179,250,1) 30%, rgba(148,226,213,1) 48%, rgba(147,178,250,1) 77%, rgba(155,176,249,1) 100%);
+    background-size: 100% 100%;
+}
+
+/* green gradient */
+#custom-wallpapers,
+#idle_inhibitor.activated,
+#custom-media,
+#battery.charging,
+#battery.plugged, 
+#clock {
+    background: rgb(148,226,213);
+    background: radial-gradient(circle, rgba(148,226,213,1) 0%, rgba(156,227,191,1) 21%, rgba(249,226,175,1) 34%, rgba(158,227,186,1) 35%, rgba(163,227,169,1) 59%, rgba(148,226,213,1) 74%, rgba(164,227,167,1) 74%, rgba(166,227,161,1) 100%); 
+    background-size: 400% 400%;
+}
+
+/* pink sky gradient */
+#window,
+#workspaces,
+#pulseaudio:not(.muted) {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0;
+}
+
+/* ??? gradient */
+#scratchpad, #battery {
+    background: rgb(238,174,217);
+    background: radial-gradient(circle, rgba(238,235,174,1) 0%, rgba(233,203,148,1) 150%); 
+}
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#idle_inhibitor.activated {
+    background-size: 480% 250%;
+}
+
+#mode {
+    border-bottom: 3px solid #FBFACD;
+}
+
+#window {
+    color: #dbdbb5;
+}
+
+#waybar.empty #window {
+    background: none;
+}
+
+#custom-media.playing {
+    animation-name: blink;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-media.paused, 
+#custom-media.stopped {
+    color: #dbdbb5;
+}
+
+#tray {
+    background: rgb(137,180,250);
+    background: radial-gradient(circle, rgba(137,180,250,120) 0%, rgba(142,179,250,120) 6%, rgba(148,226,213,1) 14%, rgba(147,178,250,1) 14%, rgba(155,176,249,1) 18%, rgba(245,194,231,1) 28%, rgba(158,175,249,1) 28%, rgba(181,170,248,1) 58%, rgba(205,214,244,1) 69%, rgba(186,169,248,1) 69%, rgba(195,167,247,1) 72%, rgba(137,220,235,1) 73%, rgba(198,167,247,1) 78%, rgba(203,166,247,1) 100%);
+    background-size: 300% 300%;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    background: rgb(235,160,172);
+    background: linear-gradient(52deg, rgba(235,160,172,1) 0%, rgba(243,139,168,1) 30%, rgba(231,130,132,1) 48%, rgba(250,179,135,1) 77%, rgba(249,226,175,1) 100%); 
+    background-size: 100% 100%;
+}
+
+@keyframes blink {
+    to {
+        background-color: #FBFACD;
+        color: #181712;
+    }
+}
+
+/* red gradient */
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
