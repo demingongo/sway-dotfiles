@@ -13,20 +13,20 @@ bar {
 }
 
 # Handle window style/behaviour
-default_border pixel 4
+default_border pixel 2
 
 gaps inner 2
 gaps outer 2
 
 # Set colors
-set $bg #03010c
+set $bg #04030F
 set $fg #faf6f3
-set $br #4e267f
-set $ia #362b87
+set $br #9ee1b6
+set $ia #04030F
 set $ur #a11021
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $br     $br     $fg     $ia       $br
+client.focused          $br     $br     $bg     $ia       $br
 client.focused_inactive $bg     $bg     $fg     $ia       $bg
 client.unfocused        $bg     $bg     $fg     $ia       $bg
 # Urgency only works for Xwayland windows
