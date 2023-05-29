@@ -89,30 +89,104 @@ button:hover {
 }
 
 #custom-spr0 {   
-    background: linear-gradient(105deg, @darkblue 50%, @lightblue 50%);
+    background: linear-gradient(75deg, @darkblue 50%, @lightblue 50%);
 }
 
 #custom-spr1 {   
-    background: linear-gradient(105deg, @lightblue 50%, @purple 50%);
+    background: linear-gradient(75deg, @lightblue 50%, @purple 50%);
 }
 
 #custom-spr2 {   
-    background: linear-gradient(105deg, @purple 50%, @darkblue 50%);
+    background: linear-gradient(75deg, @purple 50%, @darkblue 50%);
 }
 
 #custom-spr3 {   
-    background: linear-gradient(105deg, transparent 50%, @dark 50%);
+    background: linear-gradient(75deg, transparent 50%, @dark 50%);
 }
 
 #idle_inhibitor {   
-    background: linear-gradient(105deg, @dark 15%, transparent 15%, transparent 60%, @darkblue 60%);
-}
-
-#idle_inhibitor {
-    background-color: @dark;
+    background: linear-gradient(75deg, transparent 10%, @dark 15%, @dark 85%, @darkblue 90%);
 }
 
 #idle_inhibitor.activated {
+    background: linear-gradient(75deg, transparent 10%, @purple 15%, @purple 85%, @darkblue 90%);
+}
+
+#cpu {
+    background: linear-gradient(75deg, @darkblue 85%, @lightblue 90%);
+    color: @white;
+}
+
+#memory {
+    background-color: @lightblue;
+    color: @white;
+}
+
+#network {
+    background: linear-gradient(75deg, @lightblue 5%, @purple 10%, @purple 85%, @darkblue 90%);
+}
+
+#network.disconnected {
+    background: linear-gradient(75deg, @lightblue 5%, @red 10%, @red 85%, @darkblue 90%);
+}
+
+#clock {
+    background-color: @darkblue;
+    color: @white;
+}
+
+#pulseaudio {
+    background: linear-gradient(105deg, transparent 5%, @dark 10%, @dark 85%, @yellow 90%);
+    color: @white;
+}
+
+#pulseaudio.muted {
+    background: linear-gradient(105deg, transparent 5%, @darkblue 10%, @darkblue 85%, @yellow 90%);
+    color: @white;
+}
+
+#backlight {
+    background-color: @yellow;
+    color: @dark;
+}
+
+#battery {
+    background: linear-gradient(105deg, @yellow 8%, @lightblue 13%, @lightblue 85%, @purple 90%);
+    color: @white;
+}
+
+#battery.charging, #battery.plugged {
+    color: @white;
+    background: linear-gradient(105deg, @yellow 8%, #26A65B 13%, #26A65B 85%, @purple 90%);
+}
+
+@keyframes blink {
+    to {
+        background: linear-gradient(105deg, @yellow 8%, @white 13%, @white 85%, @purple 90%);
+        color: @dark;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: linear-gradient(105deg, @yellow 8%, @red 13%, @red 85%, @purple 90%);
+    color: @white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray {
+    background-color: @purple;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
     background-color: @purple;
 }
 
@@ -141,77 +215,12 @@ button:hover {
     font-weight: bold;
 }
 
-#clock {
-    background-color: @darkblue;
-    color: @white;
-}
-
-#battery {
-    background-color: @lightblue;
-    color: @white;
-}
-
-#battery.charging, #battery.plugged {
-    color: @white;
-    background-color: #26A65B;
-}
-
-@keyframes blink {
-    to {
-        background-color: @white;
-        color: @dark;
-    }
-}
-
-#battery.critical:not(.charging) {
-    background-color: @red;
-    color: @white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 label:focus {
     background-color: @dark;
 }
 
-#cpu {
-    background-color: @darkblue;
-    color: @white;
-}
-
-#memory {
-    background-color: @lightblue;
-    color: @white;
-}
-
 #disk {
     background-color: #964B00;
-}
-
-#backlight {
-    background-color: @yellow;
-    color: @dark;
-}
-
-#network {
-    background-color: @purple;
-}
-
-#network.disconnected {
-    background-color: @red;
-}
-
-#pulseaudio {
-    background-color: @dark;
-    color: @white;
-}
-
-#pulseaudio.muted {
-    background-color: @darkblue;
-    color: @white;
 }
 
 #custom-themes {
@@ -242,18 +251,7 @@ label:focus {
     background-color: @red;
 }
 
-#tray {
-    background-color: @purple;
-}
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @purple;
-}
 
 #scratchpad {
     background: rgba(0, 0, 0, 0.2);
