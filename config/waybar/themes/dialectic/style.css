@@ -168,12 +168,20 @@ button:hover {
     background: none;
 }
 
+@keyframes mediablink {
+    to {
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    }
+}
+
 #custom-media.playing {
-    animation-name: blink;
+    animation-name: mediablink;
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    color: #181712;
 }
 
 #custom-media.paused, 
@@ -200,7 +208,6 @@ button:hover {
 
 @keyframes blink {
     to {
-        background-color: #FBFACD;
         color: #181712;
     }
 }
