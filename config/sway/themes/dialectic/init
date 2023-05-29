@@ -1,5 +1,5 @@
 # Theme's variables
 
-set $rofimenutheme -theme $HOME/.local/share/rofi/themes/catppuccin-mocha.rasi
+set $rofimenutheme -theme $HOME/.local/share/rofi/themes/dialectic.rasi
 set $rofipowermenutheme $rofimenutheme
 set $rofiwallpapermenutheme $rofimenutheme
