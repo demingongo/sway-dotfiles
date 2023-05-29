@@ -88,22 +88,6 @@ button:hover {
     color: @white;
 }
 
-#custom-spr0 {   
-    background: linear-gradient(75deg, @darkblue 50%, @lightblue 50%);
-}
-
-#custom-spr1 {   
-    background: linear-gradient(75deg, @lightblue 50%, @purple 50%);
-}
-
-#custom-spr2 {   
-    background: linear-gradient(75deg, @purple 50%, @darkblue 50%);
-}
-
-#custom-spr3 {   
-    background: linear-gradient(75deg, transparent 50%, @dark 50%);
-}
-
 #idle_inhibitor {   
     background: linear-gradient(75deg, transparent 10%, @dark 15%, @dark 85%, @darkblue 90%);
 }

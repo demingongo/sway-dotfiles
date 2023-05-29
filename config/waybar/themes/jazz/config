@@ -140,26 +140,6 @@
       "escape": true,
       "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     },
-    "custom/spr0": {
-      "format": "  ",
-      "interval": "once",
-      "tooltip": false
-    },
-    "custom/spr1": {
-        "format": "  ",
-        "interval": "once",
-        "tooltip": false
-    },
-    "custom/spr2": {
-        "format": "  ",
-        "interval": "once",
-        "tooltip": false
-    },
-    "custom/spr3": {
-        "format": "  ",
-        "interval": "once",
-        "tooltip": false
-    },
     "ipc": true,
     "bar_id": "mainbar"
   },
