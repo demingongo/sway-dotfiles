@@ -32,8 +32,14 @@ set $nag exec swaynagmode
 # wob (level display for: sound, light, ...)
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+# screenshot script
+set $screenshotscript "$HOME/.local/bin/sway-interactive-screenshot" "$HOME/Pictures/Screenshots"
 # screenshot
-set $screenshot "$HOME/.local/bin/sway-interactive-screenshot" "$HOME/Pictures/Screenshots" | xargs swaymsg exec --
+set $screenshot $screenshotscript | xargs swaymsg exec --
+# screenshot fullscreen
+set $screenshotfullscreen $screenshotscript "fullscreen" | xargs swaymsg exec --
+# screenshot region
+set $screenshotregion $screenshotscript "region" | xargs swaymsg exec --
 # Workspaces names
 set $ws1 number 1
 set $ws2 number 2
@@ -256,6 +262,8 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
 
     # Screenshot
     bindsym Print exec $screenshot
+    bindsym $mod+Print exec $screenshotfullscreen
+    bindsym $mod+Shift+Print exec $screenshotregion
 
     # Switch wallpaper
     bindsym $mod+Shift+g exec $wallpapermenu

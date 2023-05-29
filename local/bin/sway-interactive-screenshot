@@ -20,12 +20,17 @@ function list_geometry () {
 WINDOWS=`list_geometry visible with_description`
 FOCUSED=`list_geometry focused`
 
+if [[ -n $2 ]]; then
+	CHOICE=$2
+else
 CHOICE=`fuzzel --dmenu -p '📷> ' << EOF
 fullscreen
 region
 focused
 $WINDOWS
 EOF`
+fi
+
 
 SAVEDIR=${1:=~}
 mkdir -p -- "$SAVEDIR"
