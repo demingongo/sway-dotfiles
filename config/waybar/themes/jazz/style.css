@@ -6,7 +6,7 @@
 @define-color purple #4e267f;
  
 @define-color dark #181712;
-@define-color modbg transparent;
+@define-color waybar-col rgba(7.8, 7.5, 5.5, 0.95);
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -15,7 +15,7 @@
 }
 
 window#waybar {
-    background-color: rgba(7.8, 7.5, 5.5, 0.95);
+    background-color: @waybar-col;
     color: #a4caee;
     transition-property: background-color;
     transition-duration: .5s;
@@ -88,6 +88,25 @@ button:hover {
     color: @white;
 }
 
+#mode {
+    background: linear-gradient(75deg, transparent 8%, @yellow 13%, @yellow 85%, transparent 90%);
+    color: @dark;
+}
+
+#custom-media {
+    background: linear-gradient(75deg, transparent 8%, @white 13%, @white 85%, transparent 90%);;
+    color: @waybar-col;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
 #idle_inhibitor {   
     background: linear-gradient(75deg, transparent 10%, @dark 15%, @dark 85%, @darkblue 90%);
 }
@@ -117,6 +136,23 @@ button:hover {
 #clock {
     background-color: @darkblue;
     color: @white;
+}
+
+#custom-themes {
+    background: linear-gradient(105deg, @dark 85%, transparent 90%);
+    color: @white;
+}
+
+#scratchpad {
+    background: linear-gradient(105deg, transparent 8%, rgba(0, 0, 0, 0.2) 13%, rgba(0, 0, 0, 0.2) 85%, transparent 90%);
+}
+
+#scratchpad.empty {
+	background: transparent;
+}
+
+#window {
+    font-weight: bold;
 }
 
 #pulseaudio {
@@ -174,12 +210,6 @@ button:hover {
     background-color: @purple;
 }
 
-#mode {
-    background-color: @yellow;
-    color: @dark;
-    border-bottom: 3px solid @white;
-}
-
 #window,
 #workspaces {
     margin: 0 4px;
@@ -195,52 +225,6 @@ button:hover {
     margin-right: 0;
 }
 
-#window {
-    font-weight: bold;
-}
-
 label:focus {
     background-color: @dark;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
-#custom-themes {
-    background-color: @dark;
-    color: @white;
-}
-
-#custom-media {
-    background-color: @white;
-    color: @dark;
-    min-width: 100px;
-    border-radius: 5px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: @red;
-}
-
-
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
 }
