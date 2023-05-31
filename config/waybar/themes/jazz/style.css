@@ -1,3 +1,4 @@
+/*
 @define-color darkblue #362b87;
 @define-color lightblue #3f74b8;
 @define-color white #faf6f3;
@@ -6,6 +7,16 @@
 @define-color purple #4e267f;
  
 @define-color dark #181712;
+*/
+@define-color darkblue #75898A;
+@define-color lightblue #919c9a;
+@define-color white #d0dfdc;
+@define-color yellow #D3CEB5;
+@define-color red #896E68;
+@define-color purple #73716B;
+ 
+@define-color dark #181712;
+
 @define-color waybar-col rgba(7.8, 7.5, 5.5, 0.95);
 
 * {
@@ -172,7 +183,7 @@ button:hover {
 
 #battery {
     background: linear-gradient(105deg, @yellow 8%, @lightblue 13%, @lightblue 85%, @purple 90%);
-    color: @white;
+    color: @dark;
 }
 
 #battery.charging, #battery.plugged {
