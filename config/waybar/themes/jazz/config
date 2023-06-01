@@ -286,12 +286,12 @@
     },
     "custom/themes": {
       "format": " ",
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-mocha.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
+      "on-click": "rofi -show p -theme jazz -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
     },
     "custom/wallpapers": {
       "format": "󰉼",
       "tooltip": false,
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/jazz/config/theme.conf\""
+      "on-click": "rofi -show p -theme jazz -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/jazz/config/theme.conf\""
     },
     "ipc": true,
     "bar_id": "mainbar"
