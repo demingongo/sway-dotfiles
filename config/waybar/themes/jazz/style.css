@@ -167,33 +167,33 @@ button:hover {
 }
 
 #pulseaudio {
-    background: linear-gradient(105deg, transparent 5%, @dark 10%, @dark 85%, @yellow 90%);
+    background: linear-gradient(105deg, transparent 5%, @dark 10%, @dark 85%, @darkblue 90%);
     color: @white;
 }
 
 #pulseaudio.muted {
-    background: linear-gradient(105deg, transparent 5%, @darkblue 10%, @darkblue 85%, @yellow 90%);
+    background: linear-gradient(105deg, transparent 5%, @darkblue 10%, @darkblue 85%, @darkblue 90%);
     color: @white;
 }
 
 #backlight {
-    background-color: @yellow;
+    background-color: @darkblue;
     color: @dark;
 }
 
 #battery {
-    background: linear-gradient(105deg, @yellow 8%, @lightblue 13%, @lightblue 85%, @purple 90%);
+    background: linear-gradient(105deg, @darkblue 8%, @lightblue 13%, @lightblue 85%, @purple 90%);
     color: @dark;
 }
 
 #battery.charging, #battery.plugged {
     color: @white;
-    background: linear-gradient(105deg, @yellow 8%, #26A65B 13%, #26A65B 85%, @purple 90%);
+    background: linear-gradient(105deg, @darkblue 8%, #26A65B 13%, #26A65B 85%, @purple 90%);
 }
 
 @keyframes blink {
     to {
-        background: linear-gradient(105deg, @yellow 8%, @white 13%, @white 85%, @purple 90%);
+        background: linear-gradient(105deg, @darkblue 8%, @white 13%, @white 85%, @purple 90%);
         color: @dark;
     }
 }

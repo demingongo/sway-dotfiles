@@ -1,5 +1,5 @@
 # Theme's variables
 
-set $rofimenutheme -theme catppuccin-mocha
+set $rofimenutheme -theme jazz
 set $rofipowermenutheme $rofimenutheme
 set $rofiwallpapermenutheme $rofimenutheme
