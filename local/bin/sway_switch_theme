@@ -8,10 +8,14 @@
 # Availability: https://github.com/demingongo/sway-dotfiles
 
 SWAY_DIR="$HOME/.config/sway"
-
 SWAY_THEMES_DIR="$SWAY_DIR/themes"
-
 THEMES_FILE="$SWAY_THEMES_DIR/themes.txt" 
+
+WAYBAR_DIR="$HOME/.config/waybar"
+WAYBAR_THEMES_DIR="$WAYBAR_DIR/themes"
+
+EWW_DIR="$HOME/.config/eww"
+EWW_THEMES_DIR="$EWW_DIR/themes"
 
 ALL_THEMES=()
 
@@ -47,6 +51,28 @@ else
 	[[ " ${ALL_THEMES[*]} " =~ " $1 " ]] && theme=$1 || exit 1	
 fi
 
+# colorscheme
+if [[ -n $2 ]]; then
+	colorscheme=$2
+else
+	colorscheme='default'
+fi
+if [[ "$colorscheme" != 'default' ]] && [[ -n "$colorscheme" ]]; then
+	SWAY_THEME_COLORSCHEME_DIR="$SWAY_THEMES_DIR/$theme/colorschemes/$colorscheme"
+	WAYBAR_THEME_COLORSCHEME_STYLE="$WAYBAR_THEMES_DIR/$theme/colorschemes/$colorscheme.css"
+	EWW_THEME_COLORSCHEME_STYLE="$EWW_THEMES_DIR/$theme/colorschemes/$colorscheme.scss"
+fi
+
+# Handle existing file. 
+# Returns second arg if file does not exist
+function Eval_file()
+{
+	if [[ -n "$1" ]] && [ -f "$1" ]; then
+		echo "$1"
+	else
+		echo "$2"
+	fi
+}
 
 # Handle config files
 Load_config()
@@ -82,18 +108,20 @@ if [[ -n "$theme" ]]; then
 	# load theme
 	content="""set \$theme $theme
 set \$theme_dir \$HOME/.config/sway/themes/\$theme
+include ./colorscheme
 include ./themes/\$theme/init
 """
 	echo "$content" > "$SWAY_DIR/theme"
+
+	# Load colorscheme
+	echo "set \$colorscheme '$colorscheme'" > "$SWAY_DIR/colorscheme"
 	
 	# load waybar
-	WAYBAR_DIR="$HOME/.config/waybar"
-	
 	WAYBAR_CONFIG="$WAYBAR_DIR/config"
 	WAYBAR_STYLE="$WAYBAR_DIR/style.css"
 	
-	WAYBAR_THEME_CONFIG="$WAYBAR_DIR/themes/$theme/config"
-	WAYBAR_THEME_STYLE="$WAYBAR_DIR/themes/$theme/style.css"
+	WAYBAR_THEME_CONFIG="$WAYBAR_THEMES_DIR/$theme/config"
+	WAYBAR_THEME_STYLE=$(Eval_file "$WAYBAR_THEME_COLORSCHEME_STYLE" "$WAYBAR_THEMES_DIR/$theme/style.css")
 
 	rm -f "$WAYBAR_CONFIG"
 	rm -f "$WAYBAR_STYLE"
@@ -106,12 +134,13 @@ include ./themes/\$theme/init
 	fi
 
 	# load eww
-	EWW_DIR="$HOME/.config/eww"
 	EWW_STYLE="$EWW_DIR/theme.scss"
-	EWW_THEME_STYLE="$EWW_DIR/themes/$theme/style.scss"
-	EWW_DEFAULT_STYLE="$EWW_DIR/themes/default/style.scss"
+	EWW_THEME_STYLE="$EWW_THEMES_DIR/$theme/style.scss"
+	EWW_DEFAULT_STYLE="$EWW_THEMES_DIR/default/style.scss"
 	
-	if [ -f "$EWW_THEME_STYLE" ]; then
+	if [ -f "$EWW_THEME_COLORSCHEME_STYLE" ]; then
+		echo "@import './themes/$theme/colorschemes/$colorscheme.scss'" > "$EWW_STYLE"
+	elif [ -f "$EWW_THEME_STYLE" ]; then
 		echo "@import './themes/$theme/style.scss'" > "$EWW_STYLE"
 	elif [ -f "$EWW_DEFAULT_STYLE" ]; then
 		echo "@import './themes/default/style.scss'" > "$EWW_STYLE"
@@ -120,11 +149,16 @@ include ./themes/\$theme/init
 	# load config
 	CONFIG_DIR="$HOME/.config/sway/settings"
 	mkdir -p "$CONFIG_DIR"
+	
 
 	# load zsh config
+	ZSH_COLORSCHEMED=''
+	if [[ -n "$SWAY_THEME_COLORSCHEME_DIR" ]]; then
+		ZSH_COLORSCHEMED="$SWAY_THEME_COLORSCHEME_DIR/config/zshrc.conf"
+	fi
 	ZSH_CONF=(
     		# source
-		"$HOME/.config/sway/themes/$theme/config/zshrc.conf"
+		$(Eval_file "$ZSH_COLORSCHEMED" "$SWAY_DIR/themes/$theme/config/zshrc.conf")
 		# destination
 		"$CONFIG_DIR/zshrc.conf"
 		# default content
@@ -135,9 +169,13 @@ include ./themes/\$theme/init
 	Load_config "${ZSH_CONF[0]}" "${ZSH_CONF[1]}" "${ZSH_CONF[2]}" "${ZSH_CONF[3]}"
 	
 	# load nvim config
+	NVIM_COLORSCHEMED=''
+	if [[ -n "$SWAY_THEME_COLORSCHEME_DIR" ]]; then
+		NVIM_COLORSCHEMED="$SWAY_THEME_COLORSCHEME_DIR/config/nvim-theme.vim"
+	fi
 	NVIM_CONF=(
 		# source
-		"$HOME/.config/sway/themes/$theme/config/nvim-theme.vim"
+		$(Eval_file "$NVIM_COLORSCHEMED" "$SWAY_DIR/themes/$theme/config/nvim-theme.vim")
 		# destination
 		"$CONFIG_DIR/nvim-theme.vim"
 		# default content
@@ -148,9 +186,13 @@ include ./themes/\$theme/init
 	Load_config "${NVIM_CONF[0]}" "${NVIM_CONF[1]}" "${NVIM_CONF[2]}" "${NVIM_CONF[3]}"
 
         # load cava config
+	CAVA_COLORSCHEMED=''
+	if [[ -n "$SWAY_THEME_COLORSCHEME_DIR" ]]; then
+		CAVA_COLORSCHEMED="$SWAY_THEME_COLORSCHEME_DIR/config/cava.conf"
+	fi
 	CAVA_CONF=(
     		# source
-		"$SWAY_DIR/themes/$theme/config/cava.conf"
+		$(Eval_file "$CAVA_COLORSCHEMED" "$SWAY_DIR/themes/$theme/config/cava.conf")
 		# destination
 		"$CONFIG_DIR/cava.conf"
 		# default content
