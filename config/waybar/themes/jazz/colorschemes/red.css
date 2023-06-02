@@ -1,0 +1,243 @@
+/*
+@define-color darkblue #362b87;
+@define-color lightblue #3f74b8;
+@define-color white #faf6f3;
+@define-color yellow #fedc61;
+@define-color red #a11021;
+@define-color purple #4e267f;
+ 
+@define-color dark #181712;
+*/
+@define-color darkblue #931523;
+@define-color lightblue #a25b64;
+@define-color white #e8838f;
+@define-color yellow #d01b2c;
+@define-color red #b7202e;
+@define-color purple #a6121e;
+ 
+@define-color dark #181712;
+
+@define-color waybar-col rgba(7.8, 7.5, 5.5, 0.95);
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: @waybar-col;
+    color: @lightblue;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: @dark;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @white;
+    border-radius: 2px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    box-shadow: inset 0 -2px @white;
+    border-radius: 0px;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @white
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-themes,
+#custom-wallpapers,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad {
+    padding: 0 10px;
+    color: @white;
+}
+
+#mode {
+    background: linear-gradient(75deg, transparent 8%, @yellow 13%, @yellow 85%, transparent 90%);
+    color: @dark;
+}
+
+#custom-media {
+    background: linear-gradient(75deg, transparent 8%, @white 13%, @white 85%, transparent 90%);;
+    color: @waybar-col;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#idle_inhibitor {   
+    background: linear-gradient(75deg, transparent 10%, @dark 15%, @dark 85%, @darkblue 90%);
+}
+
+#idle_inhibitor.activated {
+    background: linear-gradient(75deg, transparent 10%, @purple 15%, @purple 85%, @darkblue 90%);
+    color: @dark;
+}
+
+#cpu {
+    background: linear-gradient(75deg, @darkblue 85%, @lightblue 90%);
+    color: @white;
+}
+
+#memory {
+    background-color: @lightblue;
+    color: @dark;
+}
+
+#network {
+    background: linear-gradient(75deg, @lightblue 5%, @purple 10%, @purple 85%, @darkblue 90%);
+}
+
+#network.disconnected {
+    background: linear-gradient(75deg, @lightblue 5%, @red 10%, @red 85%, @darkblue 90%);
+    color: @dark;
+}
+
+#clock {
+    background-color: @darkblue;
+    color: @white;
+}
+
+#custom-themes {
+    background: linear-gradient(105deg, @dark 85%, transparent 90%);
+    color: @white;
+}
+
+#scratchpad {
+    background: linear-gradient(105deg, transparent 8%, rgba(0, 0, 0, 0.2) 13%, rgba(0, 0, 0, 0.2) 85%, transparent 90%);
+}
+
+#scratchpad.empty {
+	background: transparent;
+}
+
+#window {
+    font-weight: bold;
+}
+
+#pulseaudio {
+    background: linear-gradient(105deg, transparent 5%, @dark 10%, @dark 85%, @darkblue 90%);
+    color: @white;
+}
+
+#pulseaudio.muted {
+    background: linear-gradient(105deg, transparent 5%, @darkblue 10%, @darkblue 85%, @darkblue 90%);
+    color: @white;
+}
+
+#backlight {
+    background-color: @darkblue;
+    color: @white;
+}
+
+#battery {
+    background: linear-gradient(105deg, @darkblue 8%, @lightblue 13%, @lightblue 85%, @purple 90%);
+    color: @dark;
+}
+
+#battery.charging, #battery.plugged {
+    color: @white;
+    background: linear-gradient(105deg, @darkblue 8%, #26A65B 13%, #26A65B 85%, @purple 90%);
+}
+
+@keyframes blink {
+    to {
+        background: linear-gradient(105deg, @darkblue 8%, @white 13%, @white 85%, @purple 90%);
+        color: @dark;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: linear-gradient(105deg, @yellow 8%, @red 13%, @red 85%, @purple 90%);
+    color: @white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray {
+    background-color: @purple;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @purple;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+label:focus {
+    background-color: @dark;
+}

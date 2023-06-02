@@ -3,3 +3,5 @@
 set $rofimenutheme -theme jazz
 set $rofipowermenutheme $rofimenutheme
 set $rofiwallpapermenutheme $rofimenutheme
+
+include ./colorschemes/$colorscheme/init

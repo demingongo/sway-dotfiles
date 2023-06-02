@@ -24,6 +24,8 @@ set $br #75898A
 set $ia #000000
 set $ur #a11021
 
+include ./colorschemes/$colorscheme/theme
+
 # class                 border  backgr. text    indicator child_border
 client.focused          $br     $br     $fg     $ia       $br
 client.focused_inactive $bg     $bg     $fg     $ia       $bg
@@ -31,4 +33,3 @@ client.unfocused        $bg     $bg     $fg     $ia       $bg
 # Urgency only works for Xwayland windows
 client.urgent           $ur     $ur     $fg     $ia       $ur 
 client.background $bg
-

@@ -1,0 +1,7 @@
+# Set colors
+set $bg #000000
+set $fg #E8838F
+set $br #931523
+set $ia #000000
+set $ur #E8838F
+
