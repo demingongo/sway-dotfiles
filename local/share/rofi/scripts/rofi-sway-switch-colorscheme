@@ -98,7 +98,7 @@ echo -e "\0markup-rows\x1ftrue"
 
 if [ -z "${selection+x}" ]
 then
-    echo -e "\0prompt\x1fSelect a wallpaper"
+    echo -e "\0prompt\x1fSelect a colorscheme"
     echo -e "default"
     for i in "${!colorschemes[@]}"
     do
