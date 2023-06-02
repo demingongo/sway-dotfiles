@@ -23,6 +23,8 @@ set $menu rofi -show drun $rofimenutheme -sidebar-mode | xargs swaymsg exec --
 set $powermenu rofi -show p $rofipowermenutheme -modi "p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout" | xargs swaymsg exec --
 # wallpapermenu
 set $wallpapermenu rofi -show p $rofiwallpapermenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
+# colorschememenu
+set $colorschememenu rofi -show p $rofiwallpapermenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-colorscheme --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
 # themesmenu
 set $themesmenu rofi -show p $rofimenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme"  | xargs swaymsg exec --
 
@@ -267,6 +269,10 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
 
     # Switch wallpaper
     bindsym $mod+Shift+g exec $wallpapermenu
+
+    # Switch colorscheme
+    bindsym $mod+g exec $colorschememenu
+
 #
 # Clipboard
 #

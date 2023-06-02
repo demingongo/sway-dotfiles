@@ -105,14 +105,18 @@ then
         echo -e "${colorschemes[$i]}"
     done
 else
-    # Change wallpaper
-    for key in "${!colorschemes[@]}"
-    do
-	if [ "$selection" = "${colorschemes[$key]}" ]; then
-		found_scheme="$key"
-		break
-	fi
-    done
+    # Change colorscheme
+    if [ "$selection" = 'default' ]; then
+	    found_scheme='default'
+    else
+    	for key in "${!colorschemes[@]}"
+    	do
+		if [ "$selection" = "${colorschemes[$key]}" ]; then
+			found_scheme="$key"
+			break
+		fi
+    	done
+    fi
 
     if [ -n "${found_scheme+x}" ]
     then
