@@ -120,7 +120,7 @@ else
 
     if [ -n "${found_scheme+x}" ]
     then
-	    eval "$SWITCHER_CMD $theme_name \"$found_scheme\""
+	    eval "$SWITCHER_CMD $theme_name \"$found_scheme\" --keepbg"
 	    exit 0
     fi
 

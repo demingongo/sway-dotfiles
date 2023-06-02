@@ -26,6 +26,31 @@ done < "$THEMES_FILE"
 
 is_interactive=false
 
+
+# parse options
+KEEPBG_OPT=false
+
+opts=$(getopt --longoptions=keepbg --name "$0" --options "" -- "$@")
+eval set -- $opts
+unset opts
+
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+		"--keepbg")
+			KEEPBG_OPT=true
+			shift 1
+			;;
+		"--")
+			shift
+			break
+			;;
+		*)
+			echo "Error $1" >&2
+			exit 1
+			;;
+	esac
+done
+
 if [ $# -eq 0 ]; then
 	is_interactive=true
 	gum style \
@@ -203,8 +228,10 @@ include ./themes/\$theme/init
 	Load_config "${CAVA_CONF[0]}" "${CAVA_CONF[1]}" "${CAVA_CONF[2]}" "${CAVA_CONF[3]}"
 
 	# kill wallpaper process'
-	pkill swaybg
-	pkill mpvpaper
+	if [ "$KEEPBG_OPT" = false ]; then
+		pkill swaybg
+		pkill mpvpaper
+	fi
 
 	# restart wm
 	sway reload > /dev/null 2>&1 &
