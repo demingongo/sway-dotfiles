@@ -168,7 +168,7 @@
         "default": "🎜"
       },
       "escape": true,
-      "exec": "tail -f /tmp/mpris_widget_history.txt 2> /dev/null",
+      "exec": "sleep 1 && tail -f /tmp/mpris_widget_history.txt 2> /dev/null",
       "exec-on-event": false,
       "on-click": "mpris_widget play-pause",
       "on-click-right": "eww open --toggle mprispopup0",
@@ -354,7 +354,7 @@
         "default": "🎜"
       },
       "escape": true,
-      "exec": "tail -f /tmp/mpris_widget_history.txt",
+      "exec": "sleep 1 && tail -f /tmp/mpris_widget_history.txt",
       "exec-on-event": false,
       "on-click": "mpris_widget play-pause",
       "on-click-right": "eww open --toggle mprispopup1",
