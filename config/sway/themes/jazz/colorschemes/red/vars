@@ -1,3 +1,4 @@
 # Override variables
 
 set $term kitty --config $theme_dir/colorschemes/$colorscheme/config/kitty.conf
+set $term2 konsole --profile Behelit
