@@ -190,7 +190,7 @@ button:hover {
 
 #battery.charging, #battery.plugged {
     color: @white;
-    background: linear-gradient(105deg, @darkblue 8%, #26A65B 13%, #26A65B 85%, @purple 90%);
+    background: linear-gradient(105deg, @darkblue 8%, @darkblue 13%, @darkblue 85%, @purple 90%);
 }
 
 @keyframes blink {
