@@ -2,3 +2,4 @@
 
 set $term kitty --config $theme_dir/colorschemes/$colorscheme/config/kitty.conf
 set $term2 konsole --profile Behelit
+set $term3 wezterm --config-file $theme_dir/colorschemes/$colorscheme/config/wezterm.lua

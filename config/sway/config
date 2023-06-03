@@ -15,6 +15,8 @@ set $right l
 set $term kitty
 # Your second preferred terminal emulator
 set $term2 wezterm
+# Your third preferred terminal emulator
+set $term3 $term
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -99,8 +101,11 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
     # Start a terminal
     bindsym $mod+Return exec $term
 
-    # Start wezterm
+    # Start a terminal 2
     bindsym $mod+t exec $term2
+
+    # Start a terminal 3
+    bindsym $mod+Ctrl+t exec $term3
 
     # Kill focused window
     bindsym $mod+Shift+q kill
