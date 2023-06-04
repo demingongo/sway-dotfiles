@@ -60,6 +60,7 @@ declare -A wallpapers_names
 declare -a orders
 declare -A texts
 declare -A cmds
+declare -A previews
 
 function load_wallpapers_names()
 {
@@ -117,21 +118,24 @@ function load_wallpapers()
 		file_path=$(eval "echo \"${TMP_VALUES[0]}\"")
 	fi
 	
-    	file_type="${TMP_VALUES[1]}"
+    file_type="${TMP_VALUES[1]}"
 	bg_mode="${TMP_VALUES[2]}"
 	bg_color="${TMP_VALUES[3]}"
 
-    	cmd="$SWITCHER_CMD ${file_path}"
+    cmd="$SWITCHER_CMD ${file_path}"
 
 	if [ "$file_type" = "video" ]; then
 		cmd="${cmd} --video"
-    	fi
-    	if [ -n "$bg_mode" ]; then
+	else
+		# have a preview for images
+		previews["${key}"]="$file_path"
+    fi
+    if [ -n "$bg_mode" ]; then
 		cmd="${cmd} --mode ${bg_mode}"
-    	fi
-    	if [ -n "$bg_color" ]; then
+    fi
+    if [ -n "$bg_color" ]; then
 		cmd="${cmd} --color '#${bg_color}'"
-    	fi
+    fi
 
 	cmds["${key}"]="${cmd}"
     done
@@ -155,8 +159,12 @@ then
     echo -e "\0prompt\x1fSelect a wallpaper"
     for i in "${!orders[@]}"
     do
-	key="${orders[$i]}"
-        echo -e "${texts[$key]}"
+		key="${orders[$i]}"
+		if [[ -z "${previews[$key]}" ]]; then
+			echo -e "${texts[$key]}"
+		else
+			echo -e "${texts[$key]}\0icon\x1f${previews[$key]}"
+		fi
     done
 else
     # Change wallpaper
