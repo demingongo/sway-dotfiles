@@ -1,5 +1,7 @@
 # Theme's variables
 
-set $rofimenutheme -theme $HOME/.local/share/rofi/themes/catppuccin-frappe.rasi
-set $rofipowermenutheme $rofimenutheme
-set $rofiwallpapermenutheme $rofimenutheme
+set $rofi_appsmenu_theme -theme catppuccin-frappe
+set $rofi_powermenu_theme $rofi_appsmenu_theme
+set $rofi_wallpapersmenu_theme $rofi_appsmenu_theme
+set $rofi_colorschemesmenu_theme -theme launchpad
+set $rofi_themesmenu_theme $rofi_appsmenu_theme

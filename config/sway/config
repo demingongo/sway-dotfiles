@@ -20,15 +20,15 @@ set $term3 $term
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun $rofimenutheme -sidebar-mode | xargs swaymsg exec --
+set $menu rofi -show drun $rofi_appsmenu_theme -sidebar-mode | xargs swaymsg exec --
 # powermenu
-set $powermenu rofi -show p $rofipowermenutheme -modi "p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout" | xargs swaymsg exec --
+set $powermenu rofi -show p $rofi_powermenu_theme -modi "p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout" | xargs swaymsg exec --
 # wallpapermenu
-set $wallpapermenu rofi -show p $rofiwallpapermenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
-# colorschememenu
-set $colorschememenu rofi -show p $rofiwallpapermenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-colorscheme --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
+set $wallpapermenu rofi -show p $rofi_wallpapersmenu_theme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
+# colorschemesmenu
+set $colorschemesmenu rofi -show p $rofi_colorschemesmenu_theme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-colorscheme --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
 # themesmenu
-set $themesmenu rofi -show p $rofimenutheme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme"  | xargs swaymsg exec --
+set $themesmenu rofi -show p $rofi_themesmenu_theme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme"  | xargs swaymsg exec --
 
 
 # Swaynagmode: helper for sway prompt to enable interaction via keyboard shortcuts
@@ -276,7 +276,7 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
     bindsym $mod+Shift+g exec $wallpapermenu
 
     # Switch colorscheme
-    bindsym $mod+g exec $colorschememenu
+    bindsym $mod+g exec $colorschemesmenu
 
 #
 # Clipboard
