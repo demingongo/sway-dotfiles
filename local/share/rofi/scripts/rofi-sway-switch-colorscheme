@@ -62,12 +62,30 @@ if [[ -z "$theme_name" ]]; then
 fi
 
 declare -A colorschemes
-declare -a orders
-declare -A texts
-declare -A cmds
+declare -A icons
+
+function load_icons()
+{
+    local section=''
+    local keys=''
+    local values=''
+
+    section=$(process_section_name 'colorschemes_icons')
+
+    eval "keys=( \"\${${section}_keys[@]}\" )"
+    eval "values=( \"\${${section}_values[@]}\" )"
+
+    for i in "${!keys[@]}"; do
+		orig=$(unescape_string "${values[$i]}")
+		orig=$(eval "echo \"$orig\"")
+		icons["${keys[$i]}"]="${orig}"
+    done
+}
 
 function load_colorschemes()
 {
+	load_icons
+
     local section=''
     local keys=''
     local values=''
@@ -78,8 +96,8 @@ function load_colorschemes()
     eval "values=( \"\${${section}_values[@]}\" )"
 
     for i in "${!keys[@]}"; do
-	orig=$(unescape_string "${values[$i]}")
-	colorschemes["${keys[$i]}"]="${orig}"
+		orig=$(unescape_string "${values[$i]}")
+		colorschemes["${keys[$i]}"]="${orig}"
     done
 }
 
@@ -99,10 +117,24 @@ echo -e "\0markup-rows\x1ftrue"
 if [ -z "${selection+x}" ]
 then
     echo -e "\0prompt\x1fSelect a colorscheme"
-    echo -e "default"
+
+	if [[ -n "${icons['default']}" ]]; then
+		default_icon="${icons['default']}"
+		default_icon=$(eval "echo \"$default_icon\"")
+	fi
+
+	if [[ -z "${default_icon}" ]]; then
+    	echo -e "default"
+	else
+		echo -e "default\0icon\x1f${default_icon}"
+	fi
     for i in "${!colorschemes[@]}"
     do
-        echo -e "${colorschemes[$i]}"
+		if [[ -z "${icons[$i]}" ]]; then
+    		echo -e "${colorschemes[$i]}"
+		else
+			echo -e "${colorschemes[$i]}\0icon\x1f${icons[$i]}"
+		fi
     done
 else
     # Change colorscheme
