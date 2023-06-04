@@ -55,10 +55,15 @@ source $INI_PARSER
 process_ini_file "$CONFIG_FILE_PATH"
 
 theme_name=$(get_value 'main' 'name')
+default_icon=$(get_value 'main' 'preview')
 
 if [[ -z "$theme_name" ]]; then
 	echo "Missing main.name (theme name) in: \"$CONFIG_FILE_PATH\"" >&2
 	exit 1
+fi
+
+if [[ -n "$default_icon" ]]; then
+	default_icon=$(eval "echo \"$default_icon\"")
 fi
 
 declare -A colorschemes
@@ -70,7 +75,7 @@ function load_icons()
     local keys=''
     local values=''
 
-    section=$(process_section_name 'colorschemes_icons')
+    section=$(process_section_name 'colorschemes_previews')
 
     eval "keys=( \"\${${section}_keys[@]}\" )"
     eval "values=( \"\${${section}_values[@]}\" )"
@@ -117,11 +122,6 @@ echo -e "\0markup-rows\x1ftrue"
 if [ -z "${selection+x}" ]
 then
     echo -e "\0prompt\x1fSelect a colorscheme"
-
-	if [[ -n "${icons['default']}" ]]; then
-		default_icon="${icons['default']}"
-		default_icon=$(eval "echo \"$default_icon\"")
-	fi
 
 	if [[ -z "${default_icon}" ]]; then
     	echo -e "default"
