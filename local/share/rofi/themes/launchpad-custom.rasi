@@ -1,11 +1,10 @@
 /*******************************************************************************
- * MACOS LAUNCHPAD LIKE THEME FOR ROFI 
- * User                 : LR-Tech               
- * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+ * MACOS LAUNCHPAD LIKE THEME FOR ROFI               
+ * Customized from repo https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
 * {
-    font: "Montserrat 9";
+    font: "JetBrainsMono Nerd Font 12";
 
     bg0:  #24242480;
     bg1:  #363636;
@@ -39,21 +38,15 @@ inputbar {
   padding:  2px 4px;
   spacing:  4px;
 
-  border:         1px;
+  border:         5px;
   border-radius:  2px;
   border-color:   @bg3;
 
-  children: [icon-search,entry];
+  children: [entry];
 }
 
 prompt {
   enabled:  false;
-}
-
-icon-search {
-  expand:   false;
-  filename: "search";
-  vertical-align: 0.5;
 }
 
 entry {
