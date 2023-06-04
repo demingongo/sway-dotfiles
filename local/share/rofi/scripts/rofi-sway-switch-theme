@@ -42,7 +42,7 @@ then
     echo -e "\0prompt\x1fSelect a theme"
     for entry in "${show[@]}"
     do
-	echo -e "${entry}"
+	    echo -e "${entry}"
     done
 else
     # Change theme
