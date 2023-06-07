@@ -1,35 +1,34 @@
-/*
-@define-color darkblue #362b87;
-@define-color lightblue #3f74b8;
-@define-color white #faf6f3;
-@define-color yellow #fedc61;
-@define-color red #a11021;
-@define-color purple #4e267f;
- 
-@define-color dark #181712;
-*/
-@define-color darkblue #931523;
-@define-color lightblue #a25b64;
-@define-color white #e8838f;
-@define-color yellow #d01b2c;
-@define-color red #b7202e;
-@define-color purple #a6121e;
+@define-color darkblue #333333;
+@define-color lightblue #777777;
+@define-color white #FFFFFF;
+@define-color yellow #EEEE77;
+@define-color red #880000;
+@define-color purple #BBBBBB;
  
 @define-color dark #181712;
 
-@define-color waybar-col rgba(7.8, 7.5, 5.5, 0.95);
+@define-color waybar-col #BBBBBB;
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: Hack Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
 }
 
 window#waybar {
     background-color: @waybar-col;
-    color: @lightblue;
+    color: @dark;
     transition-property: background-color;
     transition-duration: .5s;
+}
+
+window#waybar.topbar {
+    background: linear-gradient(180deg, @waybar-col 50%, @lightblue 50%);
+}
+
+window#waybar.bottom {
+    background: linear-gradient(180deg, @lightblue 50%, @waybar-col 50%);
 }
 
 window#waybar.hidden {
@@ -105,17 +104,17 @@ button:hover {
 }
 
 #custom-media {
-    background: linear-gradient(75deg, transparent 8%, @white 13%, @white 87%, transparent 92%);;
+    background: linear-gradient(75deg, transparent 8%, @white 13%, @white 87%, transparent 92%);
     color: @waybar-col;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    color: #66cc99;
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    color: #ffa000;
 }
 
 #idle_inhibitor {   
@@ -166,6 +165,9 @@ button:hover {
 
 #window {
     font-weight: bold;
+    background-color: @waybar-col;
+    padding: 0 20px;
+    min-width: 200px;
 }
 
 #pulseaudio {

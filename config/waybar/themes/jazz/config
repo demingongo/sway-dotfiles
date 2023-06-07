@@ -1,5 +1,6 @@
 [
   {
+    "name": "topbar",
     "layer": "top",
     "position": "top",
     "height": 24,
@@ -171,6 +172,7 @@
     "bar_id": "mainbar"
   },
   {
+    "name": "bottombar",
     "layer": "top",
     "position": "bottom",
     "height": 24,
