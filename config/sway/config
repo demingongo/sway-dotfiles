@@ -349,7 +349,7 @@ exec wl-paste -t text --watch clipman store --no-persist
 #
 # Notification daemon for Wayland
 #
-exec mako
+exec mako -c $HOME/.config/sway/settings/mako.conf
 
 #
 # Transparent inactive windows

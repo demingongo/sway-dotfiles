@@ -227,6 +227,23 @@ include ./themes/\$theme/init
 	)
 	Load_config "${CAVA_CONF[0]}" "${CAVA_CONF[1]}" "${CAVA_CONF[2]}" "${CAVA_CONF[3]}"
 
+	# load mako config
+	MAKO_COLORSCHEMED=''
+	if [[ -n "$SWAY_THEME_COLORSCHEME_DIR" ]]; then
+		MAKO_COLORSCHEMED="$SWAY_THEME_COLORSCHEME_DIR/config/mako.conf"
+	fi
+	MAKO_CONF=(
+    		# source
+		$(Eval_file "$MAKO_COLORSCHEMED" "$SWAY_DIR/themes/$theme/config/mako.conf")
+		# destination
+		"$CONFIG_DIR/mako.conf"
+		# default content
+		"# mako config"
+		# default content file
+		"$CONFIG_DIR/mako.default.conf"
+	)
+	Load_config "${MAKO_CONF[0]}" "${MAKO_CONF[1]}" "${MAKO_CONF[2]}" "${MAKO_CONF[3]}"
+
 	# kill wallpaper process'
 	if [ "$KEEPBG_OPT" = false ]; then
 		pkill swaybg
@@ -236,4 +253,10 @@ include ./themes/\$theme/init
 	# restart wm
 	sway reload > /dev/null 2>&1 &
 	[ "$is_interactive" = true ] && echo "  $theme"
+
+	# reload mako daemon
+	if command -v "makoctl" &> /dev/null
+	then
+		makoctl reload
+	fi
 fi
