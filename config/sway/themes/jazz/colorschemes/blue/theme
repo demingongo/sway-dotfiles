@@ -1,0 +1,15 @@
+for_window [app_id="kitty"] border none
+
+default_border pixel 5
+
+smart_borders on
+
+gaps inner 0
+
+# Set colors
+set $bg #BBBBBB
+set $fg #0000AA
+set $br #0088FF
+set $ia #AAFFEE
+set $ur #FF7777
+
