@@ -1,19 +1,24 @@
 /* widgets/mpris-list */
 
+$mpris-list-bg-image: none !default;
+$mpris-list-border: 1px solid black !default;
+$mpris-list-li-border-bottom: 1px dotted black !default;
+$mpris-list-li-background-color: rgba(0, 0, 0, .6) !default;
+
 .mpris-list-widget {
     background-image: $mpris-list-bg-image;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    border: 1px solid black;
+    border: $mpris-list-border;
 
     .li-close {
-        background-color: rgba(0, 0, 0, .6);
+        background-color: $mpris-list-li-background-color;
     }
 
     .li {
-        background-color: rgba(0, 0, 0, .6); 
-        border-bottom: 1px dotted black;
+        background-color: $mpris-list-li-background-color; 
+        border-bottom: $mpris-list-li-border-bottom;
     }
 
     .li.mpv {
