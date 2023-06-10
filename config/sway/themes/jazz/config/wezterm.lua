@@ -6,13 +6,13 @@ local opacity = 0.90
 return {
   colors = {
     -- The default text color
-    foreground = '#e8838f',
+    foreground = '#d3ceb5',
     -- The default background color
     background = '#000000',
 
     -- Overrides the cell background color when the current cell is occupied by the
     -- cursor and the cursor style is set to Block
-    cursor_bg = '#e8838f',
+    cursor_bg = '#d0dfdc',
     -- Overrides the text color when the current cell is occupied by the cursor
     cursor_fg = '#181712',
     -- Specifies the border color of the cursor when the cursor style is set to Block,
@@ -21,9 +21,9 @@ return {
     --cursor_border = '#52ad70',
 
     -- the foreground color of selected text
-    selection_fg = '#1e1e2e',
+    selection_fg = '#000000',
     -- the background color of selected text
-    selection_bg = '#d01b2c',
+    selection_bg = '#d3ceb5',
 
     -- The color of the scrollbar "thumb"; the portion that represents the current viewport
     --scrollbar_thumb = '#222222',
@@ -33,23 +33,23 @@ return {
 
     ansi = {
       '#000000',
-      '#a6121e',
-      '#931523',
-      '#b21627',
-      '#b7202e',
-      '#cf162b',
-      '#d01b2c',
-      '#e8838f',
+      '#73716b',
+      '#75898a',
+      '#8d8878',
+      '#896e68',
+      '#a4a39a',
+      '#d3ceb5',
+      '#d0dfdc',
     },
     brights = {
-      '#a25b64',
-      '#a6121e',
-      '#931523',
-      '#b21627',
-      '#b7202e',
-      '#cf162b',
-      '#d01b2c',
-      '#e8838f',
+      '#919c91',
+      '#73716b',
+      '#75898a',
+      '#8d8878',
+      '#896e68',
+      '#a4a39a',
+      '#d3ceb5',
+      '#d0dfdc',
     },
 
     -- Since: 20220319-142410-0fcdea07
@@ -75,9 +75,4 @@ return {
   },
 
   hide_tab_bar_if_only_one_tab = true,
-
-  -- Some background style
-  window_background_opacity = opacity,
-  window_background_image_hsb = dimmer,
-  window_background_image = wezterm.config_dir .. "/../assets/brsrk.gif",
 }
