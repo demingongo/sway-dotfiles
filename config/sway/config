@@ -102,10 +102,10 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
     bindsym $mod+Return exec $term
 
     # Start a terminal 2
-    bindsym $mod+t exec $term2
+    bindsym $mod+m exec $term2
 
     # Start a terminal 3
-    bindsym $mod+Ctrl+t exec $term3
+    bindsym $mod+Shift+m exec $term3
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -282,7 +282,7 @@ input 2:14:ETPS/2_Elantech_Touchpad events disabled
 # Clipboard
 #
     # Search in clipboard
-    bindsym $mod+m exec clipman pick --tool wofi -T'--prompt=search -i'
+    bindsym $mod+c exec clipman pick --tool wofi -T'--prompt=search -i'
 #
 # Resizing containers:
 #
