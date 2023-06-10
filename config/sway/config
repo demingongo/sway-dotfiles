@@ -16,7 +16,7 @@ set $term kitty
 # Your second preferred terminal emulator
 set $term2 wezterm
 # Your third preferred terminal emulator
-set $term3 $term
+set $term3 konsole
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
