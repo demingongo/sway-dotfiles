@@ -366,5 +366,10 @@ exec nm-applet --indicator
 #
 exec blueman-applet
 
+#
+# Scipts to run whenever Sway is reloaded
+#
+include ./themes/$theme/autostart
+
 include /etc/sway/config.d/*
 
