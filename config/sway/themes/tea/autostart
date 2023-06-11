@@ -1,0 +1,3 @@
+# Scripts to run whenever Sway is reloaded
+
+exec_always $HOME/.config/eww/bin/update_vars "$theme" --colorscheme=$colorscheme
