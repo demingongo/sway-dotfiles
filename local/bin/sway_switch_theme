@@ -170,6 +170,10 @@ include ./themes/\$theme/init
 	elif [ -f "$EWW_DEFAULT_STYLE" ]; then
 		echo "@import './themes/default/style.scss'" > "$EWW_STYLE"
 	fi
+	if command -v "eww" &> /dev/null
+	then
+		eww reload
+	fi
 
 	# load config
 	CONFIG_DIR="$HOME/.config/sway/settings"
