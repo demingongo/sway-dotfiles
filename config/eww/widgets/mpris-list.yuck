@@ -1,7 +1,5 @@
 ; mpris-list-widget
 
-
-
 (defvar mpris-list-icons '{"mpv": "mpv.svg", "spotify": "spotify.svg", "rhythmbox": "rhythmbox.svg", "firefox": "firefox.png", "musikcube": "musikcube.png", "elisa": "elisa.svg", "plasma-browser-integration": "plasma.svg"}')
 (defvar mpris-list-default-icon 'default.png')
 
