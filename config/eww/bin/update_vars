@@ -36,6 +36,7 @@ fi
 
 case "$THEME" in
     "wander")
+        eww update mpris-list-default-icon="default_1.svg"
         eww update mpris-list-icons='{"mpv": "mpv_1.svg", "spotify": "spotify.svg", "rhythmbox": "rhythmbox.svg", "firefox": "firefox_1.svg", "musikcube": "musikcube.png", "elisa": "elisa.svg", "plasma-browser-integration": "plasma-browser-integration.svg"}'
         ;;
     *)

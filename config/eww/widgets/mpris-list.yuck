@@ -1,6 +1,9 @@
 ; mpris-list-widget
 
+
+
 (defvar mpris-list-icons '{"mpv": "mpv.svg", "spotify": "spotify.svg", "rhythmbox": "rhythmbox.svg", "firefox": "firefox.png", "musikcube": "musikcube.png", "elisa": "elisa.svg", "plasma-browser-integration": "plasma.svg"}')
+(defvar mpris-list-default-icon 'default.png')
 
 (defvar mpris-list-visible false)
 
@@ -53,7 +56,7 @@
 		(image 
 			:valign "start"
 			;:path "./assets/players/${mpris-list-icons[player]}"
-			:path {mpris-list-icons[player] == "null" ? "./assets/players/default.png" : "./assets/players/${mpris-list-icons[player]}"}
+			:path {mpris-list-icons?.[player] == "null" ? "./assets/players/${mpris-list-default-icon}" : "./assets/players/${mpris-list-icons[player]}"}
 			:image-width width)
 	)
 )
