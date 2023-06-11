@@ -39,16 +39,21 @@ case "$THEME" in
         eww update mpris-list-default-icon="default_1.svg"
         eww update mpris-list-icons='{"mpv": "mpv_1.svg", "vlc": "vlc.svg", "spotify": "spotify-purple.svg", "firefox": "firefox_1.svg", "musikcube": "musikcube3d.png", "elisa": "elisa.svg", "plasma-browser-integration": "plasma-browser-integration.svg", "rhythmbox": "rhythmbox.svg"}'
         ;;
+    "tea")
+        eww update mpris-list-icons='{"mpv": "mpv.svg", "vlc": "vlc.svg", "firefox": "firefox.png", "musikcube": "musikcube_4.svg", "plasma-browser-integration": "plasma.svg", "elisa": "elisa.svg", "spotify": "spotify.svg"}'
+        ;;
     "dialectic")
         eww update mpris-list-icons='{"mpv": "mpv_3.svg", "vlc": "vlc_1.svg", "spotify": "spotify-neon.png", "firefox": "firefox-preview.svg", "musikcube": "musikcube.png", "elisa": "elisa_1.svg", "plasma-browser-integration": "plasma_2.svg", "rhythmbox": "rhythmbox.svg"}'
         ;;
     "jazz")
-        eww update mpris-list-default-icon="default_2.svg"
         if [[ "$COLORSCHEME" == "red" ]]; then
+            eww update mpris-list-default-icon="default_2.svg"
             eww update mpris-list-icons='{"mpv": "mpv_4.svg", "vlc": "vlc_1.svg", "firefox": "firefox-reality.svg", "musikcube": "musikcube_2.svg", "plasma-browser-integration": "firefox_4.svg", "elisa": "elisa_3.svg"}'
         elif [[ "$COLORSCHEME" == "blue" ]]; then
+            eww update mpris-list-default-icon="default3d.png"
             eww update mpris-list-icons='{"mpv": "mpv_5.svg", "vlc": "vlc_3.svg", "firefox": "firefox-reality_1.svg", "musikcube": "musikcube_3.svg", "plasma-browser-integration": "firefox_3.svg", "elisa": "elisa.svg", "rhythmbox": "rhythmbox3d.png", "spotify": "spotify3d.png"}'
         else
+            eww update mpris-list-default-icon="default_2.svg"
             eww update mpris-list-icons='{"mpv": "video.svg", "vlc": "vlc_2.svg", "firefox": "firefox_2.svg", "musikcube": "musikcube_1.svg", "plasma-browser-integration": "plasma-browser-integration.svg", "elisa": "elisa_2.svg"}'
         fi
         ;;
