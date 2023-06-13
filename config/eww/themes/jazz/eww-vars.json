@@ -1,0 +1,37 @@
+{
+  "default": {
+    "mpris-list-default-icon": "default_2.svg",
+    "mpris-list-icons": {
+      "mpv": "video.svg",
+      "vlc": "vlc_2.svg",
+      "firefox": "firefox_2.svg",
+      "musikcube": "musikcube_1.svg",
+      "plasma-browser-integration": "plasma-browser-integration.svg",
+      "elisa": "elisa_2.svg"
+    }
+  },
+  "red": {
+    "mpris-list-default-icon": "default_2.svg",
+    "mpris-list-icons": {
+      "mpv": "mpv_4.svg",
+      "vlc": "vlc_1.svg",
+      "firefox": "firefox-reality.svg",
+      "musikcube": "musikcube_2.svg",
+      "plasma-browser-integration": "firefox_4.svg",
+      "elisa": "elisa_3.svg"
+    }
+  },
+  "blue": {
+    "mpris-list-default-icon": "default3d.png",
+    "mpris-list-icons": {
+      "mpv": "mpv_5.svg",
+      "vlc": "vlc_3.svg",
+      "firefox": "firefox-reality_1.svg",
+      "musikcube": "musikcube_3.svg",
+      "plasma-browser-integration": "firefox_3.svg",
+      "elisa": "elisa.svg",
+      "rhythmbox": "rhythmbox3d.png",
+      "spotify": "spotify3d.png"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "default": {
+    "mpris-list-default-icon": "default_1.svg",
+    "mpris-list-icons": {
+      "mpv": "mpv_1.svg",
+      "vlc": "vlc.svg",
+      "spotify": "spotify-purple.svg",
+      "firefox": "firefox_1.svg",
+      "musikcube": "musikcube3d.png",
+      "elisa": "elisa.svg",
+      "plasma-browser-integration": "plasma-browser-integration.svg",
+      "rhythmbox": "rhythmbox.svg"
+    }
+  }
+}
