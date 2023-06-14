@@ -1,0 +1,42 @@
+/* themes/fox/bar */
+
+.bar-simple {
+    background-color: #182d48;
+    padding: 3px 0;
+
+    .volume-widget,
+    .bluetooth-widget,
+    .battery-widget,
+    .time {
+        padding: 0 5px;
+    }
+
+    .mpris-media-previous-widget,
+    .mpris-media-next-widget {
+        padding: 0 10px;
+    }
+
+    .mpris-media-text-widget.firefox {
+        background: rgb(148, 226, 213);
+        background: radial-gradient(circle, rgba(148, 226, 213, 1) 0%, rgba(156, 227, 191, 1) 21%, rgba(249, 226, 175, 1) 34%, rgba(158, 227, 186, 1) 35%, rgba(163, 227, 169, 1) 59%, rgba(148, 226, 213, 1) 74%, rgba(164, 227, 167, 1) 74%, rgba(166, 227, 161, 1) 100%);
+
+        padding: 0 10px;
+        border-radius: 20px;
+    }
+
+    @keyframes mediablink {
+        to {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+    }
+
+    .mpris-media-text-widget.firefox {
+        animation-name: mediablink;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        color: #181712;
+    }
+}

@@ -1,0 +1,9 @@
+; battery-widget
+
+(defwidget battery-widget []
+    (eventbox
+        (label :class "battery-widget"
+            :text "   ${EWW_BATTERY["BAT0"]?.capacity}"
+            :xalign 0)
+    )
+)

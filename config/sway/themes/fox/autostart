@@ -1,0 +1,10 @@
+# Scripts to run whenever Sway is reloaded
+
+# update eww theme + colorscheme
+exec_always eww_update_vars "$theme" $colorscheme
+
+# launch mpris_widget server
+exec_always (killall -INT mpris_widget > /dev/null 2>&1 &) && sleep 1 && echo '' > /tmp/mpris_widget_history.txt && echo '' > /tmp/mpris_widget_errors.txt && mpris_widget --clean-start > /tmp/mpris_widget_history.txt 2> /tmp/mpris_widget_errors.txt
+
+# launch waycorner
+exec_always (killall waycorner > /dev/null 2>&1 &) && sleep 1 && (waycorner --preview &)

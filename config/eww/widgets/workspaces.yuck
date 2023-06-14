@@ -1,0 +1,33 @@
+; workspaces-widget
+
+(defvar workspaces-visible false)
+
+(deflisten workspaces :initial "[]"
+  `sway_workspace_events`)
+
+(defwidget workspaces-widget [?output_name]
+    (box :class "workspaces-widget" 
+		:orientation "horizontal"
+        :space-evenly false
+    	(for entry in workspaces
+    	    (eventbox :class "li li-${entry.num}"
+			    :onclick "swaymsg workspace '${entry.name}'"
+				(workspace-display 
+					:num "${entry.num}"
+					:name "${entry.name}"
+					:focused "${entry.focused}")
+			)
+		)
+	)
+)
+
+(defwidget workspace-display [?num name focused]
+	(box :orientation "horizontal"
+    	 :halign "start"
+		 :space-evenly false
+         :class { focused ? "item focused" : "item" }
+		(label :class "worskpace workspace-${num}"
+				:text "${name}"
+				:xalign 0)
+	)
+)

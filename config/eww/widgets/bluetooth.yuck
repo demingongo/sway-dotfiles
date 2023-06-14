@@ -1,0 +1,10 @@
+; bluetooth-widget
+
+(defwidget bluetooth-widget []
+    (eventbox
+        :onclick "blueman-manager &"
+        (label :class "bluetooth-widget"
+            :text ""
+            :xalign 0)
+    )
+)

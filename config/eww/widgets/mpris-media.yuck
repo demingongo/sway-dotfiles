@@ -1,0 +1,42 @@
+; mpris-media-widget
+
+(deflisten current_mpris_media :initial "{}"
+  `tail -f /tmp/mpris_widget_history.txt 2> /dev/null`)
+
+(defwidget mpris-media-previous-widget []
+    (eventbox
+        :onclick "mpris_widget previous"
+        (label :class "mpris-media-previous-widget"
+            :text "󰙣"
+            :xalign 0)
+    )
+)
+
+(defwidget mpris-media-next-widget []
+    (eventbox
+        :onclick "mpris_widget next"
+        (label :class "mpris-media-next-widget"
+            :text "󰙡"
+            :xalign 0)
+    )
+)
+
+(defwidget mpris-media-text-widget []
+    (eventbox
+        :onclick "mpris_widget play-pause"
+        :onrightclick "${EWW_CMD} open --toggle mprispopup0 --force-wayland"
+        (label :class "mpris-media-text-widget ${current_mpris_media != "" ? current_mpris_media?.alt : ""}"
+            :text {current_mpris_media != "" && current_mpris_media?.text != "null" ? "${current_mpris_media?.text}" : "No player"}
+            :xalign 0)
+    )
+)
+
+(defwidget mpris-media-widget []
+    (centerbox
+        :class "mpris-media-widget" 
+        :orientation "h"
+        (mpris-media-previous-widget)
+        (mpris-media-text-widget)
+        (mpris-media-next-widget)
+    )
+)

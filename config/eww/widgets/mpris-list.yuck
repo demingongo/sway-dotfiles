@@ -6,7 +6,7 @@
 (defvar mpris-list-visible false)
 
 (defpoll mpris-list :interval "1s"
-	:initial "[{'text': 'waiting...', 'alt': 'loading'}]"	; optional, defaults to poll at startup
+	:initial "[]"	; optional, defaults to poll at startup
 	:run-while mpris-list-visible   						; optional, defaults to 'true'
   `mpris_widget list`)
 

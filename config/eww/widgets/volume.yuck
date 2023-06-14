@@ -1,0 +1,16 @@
+; volume-widget
+
+(defpoll volume 
+    :interval "1s"
+    :run-while bar-simple-visible
+  "pamixer --get-volume-human")
+
+
+(defwidget volume-widget []
+    (eventbox
+        :onclick "pavucontrol &"
+        (label :class "volume-widget"
+            :text { volume == "muted" ? "󰸈" : "󰕾  ${volume}"}
+            :xalign 0)
+    )
+)

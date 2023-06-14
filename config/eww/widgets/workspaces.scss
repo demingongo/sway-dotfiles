@@ -1,0 +1,17 @@
+/* widgets/workspaces */
+
+$workspaces-text-color: orange !default;
+$workspaces-focused-text-color: cyan !default;
+$workspaces-item-padding: 0 5px;
+
+.workspaces-widget {
+    color: $workspaces-text-color;
+    .li {
+        .item {
+            padding: $workspaces-item-padding;
+        }
+        .item.focused {
+            color: $workspaces-focused-text-color;
+        }
+    }
+}

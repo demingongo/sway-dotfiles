@@ -1,0 +1,54 @@
+(defvar bar-simple-visible false)
+
+(include "./widgets/workspaces.yuck")
+(include "./widgets/mpris-media.yuck")
+(include "./widgets/volume.yuck")
+(include "./widgets/bluetooth.yuck")
+(include "./widgets/battery.yuck")
+
+(defpoll time 
+    :interval "10s"
+    :run-while bar-simple-visible
+  "date '+%H:%M %b %d, %Y'")
+
+(defwidget bar-simple-left [?output_name]
+    (box :orientation "horizontal"
+    	 :halign "start"
+		 :space-evenly false
+         :class "bar-simple-left"
+		(workspaces-widget :output_name "${output_name}")
+	)
+)
+
+(defwidget bar-simple-center [?output_name]
+    (box :orientation "horizontal"
+    	 :halign "center"
+		 :space-evenly false
+         :class "bar-simple-center"
+		(mpris-media-widget)
+	)
+)
+
+(defwidget bar-simple-right [?output_name]
+    (box :orientation "horizontal"
+    	 :halign "end"
+		 :space-evenly false
+         :class "bar-simple-right"
+        (volume-widget)
+        (bluetooth-widget)
+        (battery-widget)
+		(label :class "time"
+			:text "${time}"
+			:xalign 0)
+	)
+)
+
+(defwidget bar-simple [?output_name]
+    (centerbox
+        :class "bar-simple ${output_name}" 
+        :orientation "h"
+        (bar-simple-left :output_name "${output_name}")
+        (bar-simple-center :output_name "${output_name}")
+        (bar-simple-right :output_name "${output_name}")
+    )
+)
