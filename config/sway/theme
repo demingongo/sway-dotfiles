@@ -1,3 +1,5 @@
 set $theme basic
+set $theme_dir $HOME/.config/sway/themes/$theme
+include ./colorscheme
 include ./themes/$theme/init
 
