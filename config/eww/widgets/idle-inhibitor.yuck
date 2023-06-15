@@ -1,0 +1,16 @@
+; idle-inhibitor
+
+(defpoll inhibitors
+    :initial ""
+    :interval "10s"
+    :run-while bar-simple-visible
+  "get-wayland-idle-inhibitor-pids")
+
+(defwidget idle-inhibitor-widget []
+    (eventbox
+        :onclick { inhibitors == "" ? "${EWW_CMD} update inhibitors='loading' && (wayland-idle-inhibitor.py >/dev/null &)" : "${EWW_CMD} update inhibitors='' && (kill -INT ${inhibitors} &)" }
+        (label :class "idle-inhibitor-widget"
+            :text {inhibitors == "" ? "󰈉 " : "󰈈 "}
+            :xalign 0)
+    )
+)

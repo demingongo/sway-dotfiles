@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# get-wayland-idle-inhibitor-pids
+#
+# Author: demingongo
+# Link: https://github.com/demingongo
+# Availability: https://github.com/demingongo/sway-dotfiles
+
+PROCESS_NAME="wayland-idle-inhibitor.py"
+
+OUTPUT=`pgrep -f ${PROCESS_NAME}`
+
+PIDS=()
+
+while IFS= read -r line
+do
+	[[ -z "$line" ]] && break || PIDS=(${PIDS[@]} "$line")
+done < <(printf '%s\n' "$OUTPUT")
+
+formatted_output=""
+
+#formatted_output="["
+
+for i in ${!PIDS[@]}; do
+	formatted_output="${formatted_output}${PIDS[$i]}"
+	if [ "$((i+1))" -ne "${#PIDS[@]}" ]; then
+		formatted_output="${formatted_output} "
+	fi
+done
+
+#formatted_output="${formatted_output}]"
+
+echo "$formatted_output"
+
