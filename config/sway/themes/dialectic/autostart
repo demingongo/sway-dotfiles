@@ -2,4 +2,4 @@
 
 exec_always eww_update_vars "$theme" $colorscheme
 
-exec_always (eww close bar0 > /dev/null 2>&1 &) && (killall -INT waycorner > /dev/null 2>&1 &)
+exec_always (eww close bar0 bar1 > /dev/null 2>&1 &) && (killall waycorner > /dev/null 2>&1 &)
