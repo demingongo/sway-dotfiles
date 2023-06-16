@@ -6,11 +6,7 @@
 (include "./widgets/volume.yuck")
 (include "./widgets/bluetooth.yuck")
 (include "./widgets/battery.yuck")
-
-(defpoll time 
-    :interval "10s"
-    :run-while bar-simple-visible
-  "date '+%H:%M %b %d, %Y'")
+(include "./widgets/time.yuck")
 
 (defwidget bar-simple-left [?output_name]
     (box :orientation "horizontal"
@@ -21,16 +17,16 @@
 	)
 )
 
-(defwidget bar-simple-center [?output_name]
+(defwidget bar-simple-center [?output_name ?mprispopup_name]
     (box :orientation "horizontal"
     	 :halign "center"
 		 :space-evenly false
          :class "bar-simple-center"
-		(mpris-media-widget)
+		(mpris-media-widget :mprispopup_name "${mprispopup_name}")
 	)
 )
 
-(defwidget bar-simple-right [?output_name]
+(defwidget bar-simple-right [?output_name ?calendar_name]
     (box :orientation "horizontal"
     	 :halign "end"
 		 :space-evenly false
@@ -39,18 +35,28 @@
         (volume-widget)
         (bluetooth-widget)
         (battery-widget)
-		(label :class "time"
-			:text "${time}"
-			:xalign 0)
+		(time-widget :calendar_name "${calendar_name}")
 	)
 )
 
-(defwidget bar-simple [?output_name]
+(defwidget bar-simple [?output_name ?calendar_name ?mprispopup_name]
     (centerbox
         :class "bar-simple ${output_name}" 
         :orientation "h"
-        (bar-simple-left :output_name "${output_name}")
-        (bar-simple-center :output_name "${output_name}")
-        (bar-simple-right :output_name "${output_name}")
+        (bar-simple-left 
+            :output_name "${output_name}" 
+            :calendar_name "${calendar_name}"
+            :mprispopup_name "${mprispopup_name}"
+        )
+        (bar-simple-center 
+            :output_name "${output_name}" 
+            :calendar_name "${calendar_name}"
+            :mprispopup_name "${mprispopup_name}"
+        )
+        (bar-simple-right 
+            :output_name "${output_name}" 
+            :calendar_name "${calendar_name}"
+            :mprispopup_name "${mprispopup_name}"
+        )
     )
 )

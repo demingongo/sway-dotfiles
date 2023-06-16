@@ -21,10 +21,10 @@
     )
 )
 
-(defwidget mpris-media-text-widget []
+(defwidget mpris-media-text-widget [?mprispopup_name]
     (eventbox
         :onclick "mpris_widget play-pause"
-        :onrightclick "${EWW_CMD} open --toggle mprispopup0 --force-wayland"
+        :onrightclick {mprispopup_name != "null" ? "${EWW_CMD} open --toggle ${mprispopup_name} --force-wayland" : ""}
         (label 
             :class "mpris-media-text-widget ${current_mpris_media != "" ? "${current_mpris_media?.alt} ${current_mpris_media?.state}": ""}"
             :text {current_mpris_media != "" && current_mpris_media?.text != "null" ? "${current_mpris_media?.text}" : ""}
@@ -33,12 +33,12 @@
     )
 )
 
-(defwidget mpris-media-widget []
+(defwidget mpris-media-widget [?mprispopup_name]
     (centerbox
         :class "mpris-media-widget" 
         :orientation "h"
         (mpris-media-previous-widget)
-        (mpris-media-text-widget)
+        (mpris-media-text-widget :mprispopup_name "${mprispopup_name}")
         (mpris-media-next-widget)
     )
 )

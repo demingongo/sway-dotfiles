@@ -29,9 +29,26 @@
            :focusable false
            :namespace "gtk-layer-shell"
   ;"RAM: ${EWW_RAM.used_mem_perc} %"
-  (bar-simple :output_name "eDP-1")
+  (bar-simple 
+    :output_name "eDP-1" 
+    :calendar_name "calendar0"
+    :mprispopup_name "mprispopup0"
+  )
 )
 
+(defwindow calendar0
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "20px"
+                               :width "300px"
+                               :height "50px"
+                               :anchor "top right")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dialog"
+           :wm-ignore false
+  (calendar)
+)
 
 ;; MONITOR 1
 
@@ -47,4 +64,36 @@
            :windowtype "dialog"
            :wm-ignore false
   (mpris-list-widget :window_name "mprispopup1")
+)
+
+(defwindow bar1
+           :monitor 1
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "100%"
+                               :height "30px"
+                               :anchor "top center")
+           :stacking "bottom"
+           :exclusive true
+           :focusable false
+           :namespace "gtk-layer-shell"
+  (bar-simple 
+    :output_name "HDMI-A-1" 
+    :calendar_name "calendar1" 
+    :mprispopup_name "mprispopup1"
+  )
+)
+
+(defwindow calendar1
+           :monitor 1
+           :geometry (geometry :x "0%"
+                               :y "20px"
+                               :width "300px"
+                               :height "50px"
+                               :anchor "top right")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dialog"
+           :wm-ignore false
+  (calendar)
 )

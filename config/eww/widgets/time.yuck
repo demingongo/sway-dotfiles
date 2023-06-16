@@ -1,0 +1,15 @@
+; time-widget
+
+(defpoll time 
+    :interval "10s"
+    :run-while bar-simple-visible
+  "date '+%H:%M %b %d, %Y'")
+
+(defwidget time-widget [?calendar_name]
+    (eventbox
+        :onclick { calendar_name != "null" ? "${EWW_CMD} open --toggle ${calendar_name} --force-wayland" : ""}
+        (label :class "time-widget"
+            :text "${time}"
+            :xalign 0)
+    )
+)
