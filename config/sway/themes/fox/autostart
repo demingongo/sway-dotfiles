@@ -6,5 +6,8 @@ exec_always eww_update_vars "$theme" $colorscheme
 # launch mpris_widget server
 exec_always (killall -INT mpris_widget > /dev/null 2>&1 &) && sleep 1 && echo '' > /tmp/mpris_widget_history.txt && echo '' > /tmp/mpris_widget_errors.txt && mpris_widget --clean-start > /tmp/mpris_widget_history.txt 2> /tmp/mpris_widget_errors.txt
 
+# open bar
+exec_always (eww open bar0 --force-wayland > /dev/null 2>&1 &)
+
 # launch waycorner
 exec_always (killall waycorner > /dev/null 2>&1 &) && sleep 1 && (waycorner --preview &)
