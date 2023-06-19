@@ -1,0 +1,4 @@
+### Output configuration
+#
+# Wallpaper
+output * bg ../../wallpapers/sabitos_pattern.jpg fill

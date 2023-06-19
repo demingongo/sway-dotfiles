@@ -25,6 +25,8 @@ set $br #9ee1b6
 set $ia #04030F
 set $ur #a11021
 
+include ./colorschemes/$colorscheme/theme
+
 # class                 border  backgr. text    indicator child_border
 client.focused          $br     $br     $bg     $ia       $br
 client.focused_inactive $bg     $bg     $fg     $ia       $bg
@@ -33,3 +35,21 @@ client.unfocused        $bg     $bg     $fg     $ia       $bg
 client.urgent           $ur     $ur     $fg     $ia       $ur 
 client.background $bg
 
+mode "widgets" {
+    # up will hide eww bar0
+    # down will show eww bar0
+    bindsym $down exec eww open bar0 --force-wayland | xargs swaymsg exec --
+    bindsym $up exec eww close bar0 --force-wayland | xargs swaymsg exec --
+
+    # Ditto, with arrow keys
+    bindsym Down exec eww open bar0 --force-wayland | xargs swaymsg exec --
+    bindsym Up exec eww close bar0 --force-wayland | xargs swaymsg exec --
+
+    # mod+m will toggle mprispopup0
+    bindsym $mod+m exec eww open --toggle mprispopup0 --force-wayland | xargs swaymsg exec --
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "widgets"
