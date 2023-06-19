@@ -1,0 +1,16 @@
+; swaymode-widget
+
+(defvar swaymode-visible false)
+
+(deflisten swaymode :initial ""
+  `sway_workspace_events mode`)
+
+(defwidget swaymode-widget [?output_name]
+    (box :class "swaymode-widget" 
+		:orientation "horizontal"
+        :space-evenly false
+    	(label :class "swaymode swaymode-${swaymode}"
+				:text { swaymode != "null" && swaymode?.name != "default" ? "${swaymode.name}" : "" }
+				:xalign 0)
+	)
+)

@@ -1,0 +1,15 @@
+{
+  "kitsune": {
+    "mpris-list-default-icon": "default-grayscale.svg",
+    "mpris-list-icons": {
+      "mpv": "mpv-grayscale.svg",
+      "spotify": "spotify-grayscale.png",
+      "rhythmbox": "rhythmbox.svg",
+      "firefox": "firefox-grayscale.png",
+      "musikcube": "musikcube3d-grayscale.png",
+      "elisa": "elisa_2.svg",
+      "plasma-browser-integration": "plasma-browser-integration.svg",
+      "vlc": "vlc_2.svg"
+    }
+  }
+}

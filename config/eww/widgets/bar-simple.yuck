@@ -1,6 +1,7 @@
 (defvar bar-simple-visible false)
 
 (include "./widgets/workspaces.yuck")
+(include "./widgets/swaymode.yuck")
 (include "./widgets/mpris-media.yuck")
 (include "./widgets/idle-inhibitor.yuck")
 (include "./widgets/volume.yuck")
@@ -14,6 +15,7 @@
 		 :space-evenly false
          :class "bar-simple-left"
 		(workspaces-widget :output_name "${output_name}")
+        (swaymode-widget)
 	)
 )
 

@@ -4,6 +4,11 @@
     background-color: #182d48;
     padding: 3px 0;
 
+    .swaymode-widget {
+        padding: 0 10px;
+        font-style: italic;
+    }
+
     .idle-inhibitor-widget,
     .volume-widget,
     .bluetooth-widget,

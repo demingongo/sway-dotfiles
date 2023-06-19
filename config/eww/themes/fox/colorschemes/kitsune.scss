@@ -3,6 +3,11 @@
 $workspaces-text-color: #999999;
 $workspaces-focused-text-color: #dddddd;
 
+$mpris-list-bg-image: url('assets/kitsune3.png');
+$mpris-list-border: 1px solid #292929;
+$mpris-list-li-border-bottom: none;
+$mpris-list-li-background-color: rgba(41, 41, 41, .5);
+
 .bar-simple {
     background-color: #292929;
     color: #999999;

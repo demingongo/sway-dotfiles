@@ -1,0 +1,19 @@
+@import '../style.scss';
+
+$workspaces-text-color: #999999;
+$workspaces-focused-text-color: #555555;
+
+.bar-simple {
+    background-color: #eeeeee;
+    color: #999999;
+}
+
+$mpris-list-bg-image: url('assets/autumn-fox.jpg');
+$mpris-list-border: 1px solid #292929;
+$mpris-list-li-border-bottom: 0px dotted #292929;
+$mpris-list-li-background-color: rgba(255, 255, 255, .95) ;
+
+.mpris-list-widget {
+    background-color: #eeeeee;
+    color: #999999
+}
