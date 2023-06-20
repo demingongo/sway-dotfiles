@@ -2,6 +2,6 @@
 
 set $rofi_appsmenu_theme -theme dialectic
 set $rofi_powermenu_theme $rofi_appsmenu_theme
-set $rofi_wallpapersmenu_theme $rofi_appsmenu_theme
+set $rofi_wallpapersmenu_theme -theme launchpad-wallpapers
 set $rofi_colorschemesmenu_theme -theme launchpad-custom
 set $rofi_themesmenu_theme $rofi_appsmenu_theme

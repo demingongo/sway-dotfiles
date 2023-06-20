@@ -43,11 +43,13 @@ inputbar {
   border-radius:  2px;
   border-color:   @bg3;
 
-  children: [entry];
+  children: [entry, prompt];
 }
 
 prompt {
-  enabled:  false;
+  text-color: @bg5;
+  margin:   0px calc( -25% );
+  enabled:  true;
 }
 
 entry {
@@ -58,7 +60,7 @@ entry {
 listview {
   margin:   48px calc( 50% - 560px );
   spacing:  48px;
-  columns:  6;
+  columns:  3;
   fixed-columns: true;
 }
 
@@ -79,7 +81,7 @@ element selected {
 }
 
 element-icon {
-  size: 4em;
+  size: 12em;
   horizontal-align: 0.5;
 }
 

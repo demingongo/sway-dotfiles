@@ -79,7 +79,7 @@ element selected {
 }
 
 element-icon {
-  size: 12em;
+  size: 8em;
   horizontal-align: 0.5;
 }
 
