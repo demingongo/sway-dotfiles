@@ -1,3 +1,8 @@
+### Output configuration
+#
+# Wallpaper
+output * bg ../../wallpapers/berserk-behelit.png fit #000000
+
 # Set colors
 set $bg #000000
 set $fg #E8838F

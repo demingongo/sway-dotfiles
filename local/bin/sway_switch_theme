@@ -139,7 +139,7 @@ include ./themes/\$theme/init
 	echo "$content" > "$SWAY_DIR/theme"
 
 	# Load colorscheme
-	echo "set \$colorscheme '$colorscheme'" > "$SWAY_DIR/colorscheme"
+	echo "set \$colorscheme $colorscheme" > "$SWAY_DIR/colorscheme"
 	
 	# load waybar
 	WAYBAR_CONFIG="$WAYBAR_DIR/config"

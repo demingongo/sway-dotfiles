@@ -1,3 +1,5 @@
+output * bg ../../wallpapers/c64_xp.png fill
+
 for_window [app_id="kitty"] border none
 
 default_border pixel 5
