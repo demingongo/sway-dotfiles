@@ -2,3 +2,10 @@
 #
 # Wallpaper
 output * bg ../../wallpapers/sabitos_pattern.jpg fill
+
+# Set colors
+set $bg #eeeeee
+set $fg #999999
+set $br #eeeeee
+set $ia #409866
+set $ur #e09949

@@ -3,14 +3,8 @@
 # Wallpaper
 output * bg ./wallpapers/logo.jpg fill
 
-# Read `man 5 sway` for a complete reference.
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
-#    swaybar_command waybar
-#}
+for_window [app_id="pavucontrol"] border normal
+for_window [app_id="blueman-manager"] border normal
 
 # Handle window style/behaviour
 default_border pixel 1
@@ -28,7 +22,7 @@ set $ur #a11021
 include ./colorschemes/$colorscheme/theme
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $br     $br     $bg     $ia       $br
+client.focused          $br     $br     $fg     $ia       $br
 client.focused_inactive $bg     $bg     $fg     $ia       $bg
 client.unfocused        $bg     $bg     $fg     $ia       $bg
 # Urgency only works for Xwayland windows
