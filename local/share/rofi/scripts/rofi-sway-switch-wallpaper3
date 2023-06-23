@@ -1,0 +1,169 @@
+#!/usr/bin/env bash
+
+# rofi-sway-switch-wallpaper3
+#
+# Description: change wallpaper on SwayWM
+# Author: demingongo
+# Link: https://github.com/demingongo
+# Availability: https://github.com/demingongo/sway-dotfiles
+
+set -e
+
+## init
+
+# script that will change the wallpaper
+SWITCHER_CMD="$HOME/.local/bin/sway_switch_wallpaper"
+
+# ini file parser
+# https://github.com/demingongo/ini-reader
+INI_READER="ini-reader"
+
+# config file path
+CONFIG_FILE_PATH=''
+
+# parse options
+opts=$(getopt --longoptions=config: --name "$0" --options "" -- "$@")
+eval set -- $opts
+unset opts
+
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+		"--config")
+            		CONFIG_FILE_PATH="$2"
+            		shift 2
+            		;;
+        	"--")
+	  	        shift
+	            	break
+        		;;
+        	*)
+			echo "Error $1" >&2
+			exit 1
+            		;;
+    esac
+done
+
+# validate options
+if [ -z "$CONFIG_FILE_PATH" ]; then
+	echo "Missing option: \"--config <path/to/config/file>\"" >&2
+	exit 1
+fi
+
+## process ini file
+
+wallpapers_dir=$("$INI_READER" "$CONFIG_FILE_PATH" main wallpapers_dir)
+
+declare -A wallpapers_names
+declare -a orders
+declare -A texts
+declare -A cmds
+declare -A previews
+
+function load_wallpapers_names()
+{
+	local cmd="$INI_READER $CONFIG_FILE_PATH wallpapers_names"
+
+	while read -r a b; do wallpapers_names["$a"]="$b"; done < <($cmd)
+}
+
+function load_wallpapers()
+{
+    load_wallpapers_names
+
+    local section=''
+    local keys=''
+    local values=''
+    
+    local key=''
+    local value=''
+    local file_path=''
+    local file_type=''
+    local bg_mode=''
+    local bg_color=''
+    local cmd=''
+
+	local cmd_ini_read="$INI_READER $CONFIG_FILE_PATH wallpapers"
+
+	while read -r key value; do 
+		name="${key}"
+	
+		[ "${wallpapers_names[$key]+abc}" ] && name="${wallpapers_names[$key]}"
+
+		texts["${key}"]="${name}" 
+		orders+=( "${key}" )
+
+		IFS=' ' read -ra TMP_VALUES <<< "${value}"
+		if [ -n "$wallpapers_dir" ]; then
+			file_path=$(eval "echo \"$wallpapers_dir/${TMP_VALUES[0]}\"")
+		else
+			file_path=$(eval "echo \"${TMP_VALUES[0]}\"")
+		fi
+
+    	file_type="${TMP_VALUES[1]}"
+		bg_mode="${TMP_VALUES[2]}"
+		bg_color="${TMP_VALUES[3]}"
+
+    	cmd="$SWITCHER_CMD ${file_path}"
+
+		if [ "$file_type" = "video" ]; then
+			cmd="${cmd} --video"
+		else
+			# have a preview for images
+			previews["${key}"]="$file_path"
+    	fi
+    	if [ -n "$bg_mode" ]; then
+			cmd="${cmd} --mode ${bg_mode}"
+    	fi
+    	if [ -n "$bg_color" ]; then
+			cmd="${cmd} --color '#${bg_color}'"
+    	fi
+
+		cmds["${key}"]="${cmd}"
+	done < <($cmd_ini_read)
+}
+
+load_wallpapers
+
+if [ $# -gt 0 ]
+then
+    # If arguments given, use those as the selection
+    selection="${@}"
+fi
+
+# Don't allow custom entries
+echo -e "\0no-custom\x1ftrue"
+# Use markup
+echo -e "\0markup-rows\x1ftrue"
+
+if [ -z "${selection+x}" ]
+then
+    echo -e "\0prompt\x1fSelect a wallpaper"
+    for i in "${!orders[@]}"
+    do
+		key="${orders[$i]}"
+		if [[ -z "${previews[$key]}" ]]; then
+			echo -e "${texts[$key]}"
+		else
+			echo -e "${texts[$key]}\0icon\x1f${previews[$key]}"
+		fi
+    done
+else
+    # Change wallpaper
+    for key in "${!texts[@]}"
+    do
+	if [ "$selection" = "${texts[$key]}" ]; then
+		found_cmd="${cmds[$key]}"
+		break
+	fi
+    done
+
+    if [ -n "${found_cmd+x}" ]
+    then
+	    eval "$found_cmd"
+	    exit 0
+    fi
+
+    echo "Invalid: $selection" >&2
+    exit 1
+fi
+

@@ -15,6 +15,7 @@ set -e
 SWITCHER_CMD="$HOME/.local/bin/sway_switch_theme"
 
 # ini file parser
+# https://github.com/demingongo/ini-reader
 INI_READER="ini-reader"
 
 # config file path

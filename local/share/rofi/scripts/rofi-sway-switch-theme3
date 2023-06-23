@@ -12,6 +12,7 @@ set -u
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# https://github.com/demingongo/sway-list-themes
 cmd="sway-list-themes"
 
 ALL_THEMES=()
