@@ -26,7 +26,7 @@ set $powermenu rofi -show p $rofi_powermenu_theme -modi "p:$HOME/.local/share/ro
 # wallpapermenu
 set $wallpapermenu rofi -show p $rofi_wallpapersmenu_theme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
 # colorschemesmenu
-set $colorschemesmenu rofi -show p $rofi_colorschemesmenu_theme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-colorscheme --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
+set $colorschemesmenu rofi -show p $rofi_colorschemesmenu_theme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-colorscheme3 --config '$theme_dir/config/theme.conf'"  | xargs swaymsg exec --
 # themesmenu
 set $themesmenu rofi -show p $rofi_themesmenu_theme -modi "p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme3"  | xargs swaymsg exec --
 
