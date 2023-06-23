@@ -11,7 +11,7 @@ set -e
 
 ## init
 
-# script that will change the wallpaper
+# script that will change the colorscheme
 SWITCHER_CMD="$HOME/.local/bin/sway_switch_theme"
 
 # ini file parser
