@@ -6,9 +6,9 @@
 * {
     font: "JetBrainsMono Nerd Font 12";
 
-    bg0:  #24242480;
+    bg0:  #05050595;
     bg1:  #363636;
-    bg2:  #f5f5f520;
+    bg2:  #f5f5f580;
     bg3:  #f5f5f540;
     bg4:  #0860f2E6;
 
@@ -32,27 +32,30 @@ mainbox {
 }
 
 inputbar {
-  background-color: @bg2;
-
-  margin:   0px calc( 50% - 120px );
-  padding:  2px 4px;
-  spacing:  4px;
-
-  border:         5px;
-  border-radius:  2px;
-  border-color:   @bg3;
-
-  children: [entry, prompt];
+  margin:   0px calc( 50% - 300px );
+    children: [prompt,entry];
+    background-color: @bg2;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 prompt {
-  margin:   0px calc( -25% );
-  enabled:  true;
+    background-color: @bg0;
+    padding: 6px;
+    border-radius: 3px;
 }
 
 entry {
-  placeholder:        "Search";
-  placeholder-color:  @bg2;
+    placeholder:        "Search";
+    placeholder-color:  @bg2;
+
+    padding:  2px 4px;
+
+    border:         5px;
+    border-radius:  2px;
+    border-color:   @bg3;
+
+    background-color: @bg1;
 }
 
 listview {
