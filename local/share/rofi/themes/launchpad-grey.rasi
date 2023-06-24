@@ -1,0 +1,17 @@
+@theme "launchpad-custom"
+
+* {
+    bg0:  #00000099; /* window and prompt bg color */
+    bg4:  #75898A; /* element selected bg color */
+    fg0:  #d0dfdc; /* * text-color */
+}
+
+prompt {
+  text-color: #A4A39A
+;
+}
+
+listview {
+  margin:   38px calc( 50% - 560px );
+  spacing:  38px;
+}
