@@ -1,0 +1,5 @@
+@theme "launchpad-light"
+
+element-icon {
+  size: 8em;
+}

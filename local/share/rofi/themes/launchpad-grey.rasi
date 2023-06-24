@@ -7,8 +7,7 @@
 }
 
 prompt {
-  text-color: #A4A39A
-;
+  text-color: #A4A39A;
 }
 
 listview {
