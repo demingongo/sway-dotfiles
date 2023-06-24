@@ -12,3 +12,8 @@
 entry {
   placeholder-color: #A25B64;
 }
+
+listview {
+  margin:   38px calc( 50% - 560px );
+  spacing:  38px;
+}
