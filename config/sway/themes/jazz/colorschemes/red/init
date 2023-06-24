@@ -3,5 +3,5 @@
 set $rofi_appsmenu_theme -theme jazz-red
 set $rofi_powermenu_theme $rofi_appsmenu_theme
 set $rofi_wallpapersmenu_theme $rofi_appsmenu_theme
-set $rofi_colorschemesmenu_theme -theme launchpad-jazz-red
+set $rofi_colorschemesmenu_theme -theme launchpad-red
 set $rofi_themesmenu_theme $rofi_appsmenu_theme
