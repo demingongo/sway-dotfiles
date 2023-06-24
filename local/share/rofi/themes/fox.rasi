@@ -1,0 +1,31 @@
+@theme "paper-float"
+
+* {
+    text-color: rgba ( 88, 104, 117, 100 % );
+}
+
+textbox-prompt-colon {
+    text-color: rgba ( 88, 104, 117, 100 % );
+}
+
+entry {
+    text-color: #c5c5c5;
+}
+
+inputbar, mode-switcher, listview {
+    background-color: #182d48;
+}
+
+element normal normal, element alternate normal {
+    background-color: #182d48;
+    text-color: #ce7721;
+}
+
+element selected normal {
+    text-color: #1fc3ca;
+    background-color: #2a3c54;
+}
+
+button selected {
+    text-color: #6ea2bb;
+}
