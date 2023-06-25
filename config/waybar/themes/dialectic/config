@@ -177,17 +177,17 @@
       "format": " ",
 
       "tooltip": false,
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/dialectic.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
+      "on-click": "rofi -show p -theme launchpad-custom -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme3\""
     },
     "custom/wallpapers": {
       "format": "󰉼",
       "tooltip": false,
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/dialectic.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
+      "on-click": "rofi -show p -theme launchpad-wallpapers -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper3 --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
     },
     "custom/powermenu": {
       "format": " ",
       "tooltip": false,
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/dialectic.rasi -modi \"p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout\""
+      "on-click": "rofi -show p -theme dialectic -modi \"p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout\""
     },
     "ipc": true,
     "bar_id": "mainbar"
@@ -361,17 +361,17 @@
     "custom/themes": {
       "format": " ",
       "tooltip": false,
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/dialectic.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme\""
+      "on-click": "rofi -show p -theme launchpad-custom -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme3\""
     },
     "custom/wallpapers": {
       "format": "󰉼",
       "tooltip": false,
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/dialectic.rasi -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
+      "on-click": "rofi -show p -theme launchpad-wallpapers -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper3 --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
     },
     "custom/powermenu": {
       "format": " ",
       "tooltip": false,
-      "on-click": "rofi -show p -theme $HOME/.local/share/rofi/themes/dialectic.rasi -modi \"p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout\""
+      "on-click": "rofi -show p -theme dialectic -modi \"p:$HOME/.local/share/rofi/scripts/sway-rofi-power-menu --choices=lockscreen/logout\""
     },
     "ipc": true,
     "bar_id": "mainbar"
