@@ -1,4 +1,4 @@
-set $rofi_appsmenu_theme -theme jazz
+set $rofi_appsmenu_theme -theme kitsune
 set $rofi_powermenu_theme $rofi_appsmenu_theme
 set $rofi_wallpapersmenu_theme -theme launchpad-grey-wallpapers
 set $rofi_colorschemesmenu_theme -theme launchpad-grey
