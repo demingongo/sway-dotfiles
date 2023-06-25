@@ -1,0 +1,14 @@
+@theme "launchpad-wander"
+
+listview {
+  margin:   28px calc( 50% - 560px );
+  spacing:  28px;
+}
+
+element {
+  padding:  4px;
+}
+
+element-icon {
+  size: 8em;
+}
