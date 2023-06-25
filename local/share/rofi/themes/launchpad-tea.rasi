@@ -1,0 +1,35 @@
+@theme "launchpad-custom"
+
+* {
+  text-color: #CBA179;
+}
+
+window {
+  padding: 0.46em;
+  background-color: transparent;
+}
+
+mainbox {
+    background-color: #E7DCD1;
+    border-radius: 6px;
+}
+
+prompt {
+    background-color: #CBA179;
+    text-color: #FBFACD;
+}
+
+entry {
+    background-color: transparent;
+    placeholder-color:  #DFC7B1;
+    border-color: transparent;
+}
+
+listview {
+  margin:   38px calc( 50% - 560px );
+  spacing:  38px;
+}
+
+element selected normal {
+    background-color: #DFC7B1;
+}
