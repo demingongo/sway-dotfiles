@@ -177,12 +177,12 @@
       "format": " ",
 
       "tooltip": false,
-      "on-click": "rofi -show p -theme launchpad-custom -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme3\""
+      "on-click": "rofi -show p -theme launchpad-dialectic -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme3\""
     },
     "custom/wallpapers": {
       "format": "󰉼",
       "tooltip": false,
-      "on-click": "rofi -show p -theme launchpad-wallpapers -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper3 --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
+      "on-click": "rofi -show p -theme launchpad-dialectic-wallpapers -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper3 --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
     },
     "custom/powermenu": {
       "format": " ",
@@ -361,12 +361,12 @@
     "custom/themes": {
       "format": " ",
       "tooltip": false,
-      "on-click": "rofi -show p -theme launchpad-custom -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme3\""
+      "on-click": "rofi -show p -theme launchpad-dialectic -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-theme3\""
     },
     "custom/wallpapers": {
       "format": "󰉼",
       "tooltip": false,
-      "on-click": "rofi -show p -theme launchpad-wallpapers -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper3 --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
+      "on-click": "rofi -show p -theme launchpad-dialectic-wallpapers -modi \"p:$HOME/.local/share/rofi/scripts/rofi-sway-switch-wallpaper3 --config=$HOME/.config/sway/themes/dialectic/config/theme.conf\""
     },
     "custom/powermenu": {
       "format": " ",
