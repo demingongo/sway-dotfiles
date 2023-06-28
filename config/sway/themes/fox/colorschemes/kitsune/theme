@@ -2,3 +2,10 @@
 #
 # Wallpaper
 output * bg ../../wallpapers/kitsune.png fill
+
+# Set colors
+set $bg #292929
+set $fg #999999
+set $br #292929
+set $ia #999999
+set $ur #a11021

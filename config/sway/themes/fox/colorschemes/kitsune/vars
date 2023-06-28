@@ -1,0 +1,5 @@
+# Override variables
+
+set $term kitty --config $theme_dir/colorschemes/$colorscheme/config/kitty.conf
+set $term2 wezterm --config-file $theme_dir/colorschemes/$colorscheme/config/wezterm.lua
+set $term3 $term2
