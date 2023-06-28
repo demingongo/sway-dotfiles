@@ -1,8 +1,0 @@
-@theme "jazz"
-
-* {
-    bg-col:  #292929;
-    bg-col-light: #292929;
-    border-col: #292929;
-    selected-col: #292929;
-}
