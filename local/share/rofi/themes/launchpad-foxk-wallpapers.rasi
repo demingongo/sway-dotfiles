@@ -1,4 +1,4 @@
-@theme "launchpad-fox"
+@theme "launchpad-foxk"
 
 listview {
   margin:   28px calc( 50% - 560px );
