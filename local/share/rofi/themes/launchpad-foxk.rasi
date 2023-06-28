@@ -1,10 +1,10 @@
 @theme "launchpad-custom"
 
 * {
-    bg0:  #29292999; /* window and prompt bg color */
-    bg1:  #29292999; /* entry bg color */
-    bg2:  #29292999; /* inputbar bg color */
-    bg3:  #29292999; /* entry border color */
+    bg0:  #292929ee; /* window and prompt bg color */
+    bg1:  #292929; /* entry bg color */
+    bg2:  #292929; /* inputbar bg color */
+    bg3:  #292929; /* entry border color */
     bg4:  #999999; /* element selected bg color */
     fg0:  #d0dfdc; /* * text-color */
 }
