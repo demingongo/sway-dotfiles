@@ -15,7 +15,7 @@ gaps outer 0
 # Set colors
 set $bg #04030F
 set $fg #faf6f3
-set $br #9ee1b6
+set $br #5c8b84
 set $ia #04030F
 set $ur #a11021
 

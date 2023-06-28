@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
-local dimmer = { brightness = 0.05, }
-local opacity = 0.90
+local dimmer = { brightness = 0.01, }
+local opacity = 0.75
 
 local COLORS = {
   '#000000',
@@ -93,5 +93,5 @@ return {
   -- Some background style
   window_background_opacity = opacity,
   window_background_image_hsb = dimmer,
-  window_background_image = wezterm.config_dir .. "/../assets/eva.gif",
+  window_background_image = wezterm.config_dir .. "/../assets/dancing_fox.gif",
 }
