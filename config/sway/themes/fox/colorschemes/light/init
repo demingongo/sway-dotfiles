@@ -1,6 +1,6 @@
 # Theme's variables
 
-set $rofi_appsmenu_theme -theme light-green
+set $rofi_appsmenu_theme -theme foxl
 set $rofi_powermenu_theme $rofi_appsmenu_theme
 set $rofi_wallpapersmenu_theme -theme launchpad-foxl-wallpapers
 set $rofi_colorschemesmenu_theme -theme launchpad-foxl
