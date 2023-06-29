@@ -2,6 +2,6 @@
 
 set $rofi_appsmenu_theme -theme light-green
 set $rofi_powermenu_theme $rofi_appsmenu_theme
-set $rofi_wallpapersmenu_theme -theme launchpad-light-wallpapers
-set $rofi_colorschemesmenu_theme -theme launchpad-light
+set $rofi_wallpapersmenu_theme -theme launchpad-foxl-wallpapers
+set $rofi_colorschemesmenu_theme -theme launchpad-foxl
 set $rofi_themesmenu_theme $rofi_colorschemesmenu_theme

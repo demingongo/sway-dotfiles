@@ -3,5 +3,5 @@
 set $rofi_appsmenu_theme -theme catppuccin-latte-custom
 set $rofi_powermenu_theme -theme catppuccin-latte-powermenu
 set $rofi_wallpapersmenu_theme $rofi_appsmenu_theme
-set $rofi_colorschemesmenu_theme -theme launchpad-custom
+set $rofi_colorschemesmenu_theme $rofi_appsmenu_theme
 set $rofi_themesmenu_theme $rofi_appsmenu_theme
