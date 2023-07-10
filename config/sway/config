@@ -367,6 +367,12 @@ exec nm-applet --indicator
 exec blueman-applet
 
 #
+# fix
+#
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+#
 # Scripts to run whenever Sway is reloaded
 #
 include ./themes/$theme/autostart
