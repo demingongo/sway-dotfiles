@@ -110,14 +110,6 @@ button:hover {
     min-width: 100px;
 }
 
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
 #idle_inhibitor {   
     background: linear-gradient(75deg, transparent 10%, @dark 15%, @dark 87%, @darkblue 92%);
 }

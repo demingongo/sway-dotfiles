@@ -105,17 +105,17 @@ button:hover {
 }
 
 #custom-media {
-    background: linear-gradient(75deg, transparent 8%, @white 13%, @white 85%, transparent 90%);;
+    background: linear-gradient(75deg, transparent 8%, @white 13%, @white 85%, transparent 90%);
     color: @waybar-col;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    background: linear-gradient(75deg, transparent 8%, #66cc99 13%, #66cc99 85%, transparent 90%);
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    background: linear-gradient(75deg, transparent 8%, #ffa000 13%, #ffa000 85%, transparent 90%);
 }
 
 #idle_inhibitor {   
