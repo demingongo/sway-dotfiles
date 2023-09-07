@@ -53,6 +53,10 @@ else
 	wallpaper_path=$1
 fi
 
+if [[ ${COLOR:0:1} != "#" ]]; then
+	COLOR="#${COLOR}"
+fi
+
 # kill swaybg process
 pkill swaybg
 
